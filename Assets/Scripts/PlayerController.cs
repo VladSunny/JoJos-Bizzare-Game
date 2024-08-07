@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 using JJBG.Movement;
+using JJBG.Camera;
 
 namespace JJBG.Controller
 {
@@ -9,7 +9,8 @@ namespace JJBG.Controller
 
     public class PlayerController : MonoBehaviour
     {
-        [Header("PlayerController")]
+        [Header("References")]
+        [SerializeField] ThirdPersonCam _thirdPersonCam;
         [SerializeField] Transform _orientation;
 
         private PlayerControls _playerControls;
@@ -45,6 +46,10 @@ namespace JJBG.Controller
 
             if (_playerControls.Player.Jump.inProgress) {
                 _characterMovement.Jump();
+            }
+
+            if (_playerControls.Player.ChangeCameraStyle.triggered) {
+                _thirdPersonCam.NextCameraStyle();
             }
         }
     }

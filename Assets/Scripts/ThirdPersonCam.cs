@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,12 +13,16 @@ namespace JJBG.Camera
         [SerializeField] private Transform _combatLookAt;
         [SerializeField] private Rigidbody _rigidbody;
 
+        [Header("Cameras")]
+        [SerializeField] private CinemachineFreeLook _basicCam;
+        [SerializeField] private CinemachineFreeLook _combatCam;
+
         [Header("Settings")]
         [SerializeField] private float _rotationSpeed = 7f;
         [SerializeField] private float _updateOrientationSpeed = 10f;
         [SerializeField] private CameraStyle _currentStyle = CameraStyle.Basic;
 
-        private enum CameraStyle {
+        public enum CameraStyle {
             Basic,
             Combat
         }
@@ -25,6 +30,8 @@ namespace JJBG.Camera
         private void Awake() {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            SetCameraStyle(_currentStyle);
         }
 
         private void Update() {
@@ -52,6 +59,28 @@ namespace JJBG.Camera
                     dirToCombatLookAt.normalized,
                     Time.deltaTime * _updateOrientationSpeed
                 );
+            }
+        }
+
+        public void SetCameraStyle(CameraStyle style) {
+            _currentStyle = style;
+
+            if (_currentStyle == CameraStyle.Basic) {
+                _basicCam.Priority = 10;
+                _combatCam.Priority = 0;
+            }
+            else if (_currentStyle == CameraStyle.Combat) {
+                _basicCam.Priority = 0;
+                _combatCam.Priority = 10;
+            }
+        }
+
+        public void NextCameraStyle() {
+            if (_currentStyle == CameraStyle.Basic) {
+                SetCameraStyle(CameraStyle.Combat);
+            }
+            else if (_currentStyle == CameraStyle.Combat) {
+                SetCameraStyle(CameraStyle.Basic);
             }
         }
     }
