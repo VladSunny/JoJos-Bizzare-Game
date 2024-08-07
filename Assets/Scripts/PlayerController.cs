@@ -1,7 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 using JJBG.Movement;
-using UnityEngine.InputSystem;
 
 namespace JJBG.Controller
 {
