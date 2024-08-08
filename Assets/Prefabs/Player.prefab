@@ -183,6 +183,8 @@ GameObject:
   - component: {fileID: 7926356897707628273}
   - component: {fileID: 8917625961096144048}
   - component: {fileID: 6962480490138658153}
+  - component: {fileID: 1579958971794492505}
+  - component: {fileID: 5386218285673766795}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -248,8 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   _groundDrag: 4
-  _jumpForce: 5
-  _jumpCooldown: 0.25
+  _jumpForce: 6
+  _jumpCooldown: 0.75
   _airMultiplier: 0.25
 --- !u!114 &8917625961096144048
 MonoBehaviour:
@@ -282,3 +284,40 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1579958971794492505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396603568173407483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfebaa52c41e833b8bba15455f38459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _timeToStartHealing: 5
+  _healAmount: 10
+  _healRate: 1
+  _health: 0
+--- !u!114 &5386218285673766795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396603568173407483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626a7f8bab7292af8b3f495ad750de52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerObj: {fileID: 3200135129794678778}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _drawDebugBoxInEditor: 1
+  _debugPunch: 1
+  _punchKey: 323
+  _debugDraw: 1
