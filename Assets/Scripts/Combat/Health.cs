@@ -27,6 +27,9 @@ namespace JJBG.Combat
 
         private void Awake() {
             _health = _maxHealth;
+        }
+
+        private void Start() {
             onHealthChanged?.Invoke(_health);
         }
 

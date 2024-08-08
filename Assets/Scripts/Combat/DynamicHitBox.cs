@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using JJBG.Combat;
 
 namespace JJBG.Core
 {
@@ -74,7 +75,13 @@ namespace JJBG.Core
             {
                 CreateHitBox(Vector3.forward * 1f, new Vector3(1f, 1f, 1f), (collider) =>
                 {
+                    if (collider.GetComponentInChildren<DynamicHitBox>() == this)
+                        return;
+                    
                     Debug.Log(collider);
+
+                    collider.GetComponentInChildren<Health>()?.TakeDamage(10f);
+
                 }, _debugDraw);
             }
         }
