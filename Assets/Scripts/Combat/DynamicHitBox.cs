@@ -81,6 +81,7 @@ namespace JJBG.Core
                     Debug.Log(collider);
 
                     collider.GetComponentInChildren<Health>()?.TakeDamage(10f);
+                    collider.GetComponentInChildren<Rigidbody>()?.AddForce(_playerObj.forward * 5f, ForceMode.Impulse);
 
                 }, _debugDraw);
             }
