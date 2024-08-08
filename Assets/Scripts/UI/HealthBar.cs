@@ -10,8 +10,10 @@ namespace JJBG.UI
     {
         [Header("References")]
         [SerializeField] private Health _health;
+        [SerializeField] private Image _fill;
 
         [Header("Settings")]
+        [SerializeField] private Gradient _gradient;
         [SerializeField] private float _sliderSpeed = 0.5f;
 
         private Slider _slider;
@@ -36,6 +38,7 @@ namespace JJBG.UI
 
         private void OnHealthChanged(float health) {
             _slider.DOValue(health, _sliderSpeed).SetEase(Ease.OutCubic);
+            _fill.color = _gradient.Evaluate(health / _maxHealth);
         }
     }
 }
