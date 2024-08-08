@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using JJBG.Combat;
+using DG.Tweening;
 
 namespace JJBG.UI
 {
@@ -34,7 +35,7 @@ namespace JJBG.UI
         }
 
         private void OnHealthChanged(float health) {
-            _slider.value = health;
+            _slider.DOValue(health, _sliderSpeed).SetEase(Ease.OutCubic);
         }
     }
 }
