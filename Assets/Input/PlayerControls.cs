@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BasePunches"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a5576c7-423a-4063-b960-52dd92b8cb18"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""SetRunning"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e716f28-ccd4-401f-bf88-c3807a6ce459"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasePunches"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_ChangeCameraStyle = m_Player.FindAction("ChangeCameraStyle", throwIfNotFound: true);
         m_Player_SetRunning = m_Player.FindAction("SetRunning", throwIfNotFound: true);
+        m_Player_BasePunches = m_Player.FindAction("BasePunches", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_ChangeCameraStyle;
     private readonly InputAction m_Player_SetRunning;
+    private readonly InputAction m_Player_BasePunches;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @ChangeCameraStyle => m_Wrapper.m_Player_ChangeCameraStyle;
         public InputAction @SetRunning => m_Wrapper.m_Player_SetRunning;
+        public InputAction @BasePunches => m_Wrapper.m_Player_BasePunches;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SetRunning.started += instance.OnSetRunning;
             @SetRunning.performed += instance.OnSetRunning;
             @SetRunning.canceled += instance.OnSetRunning;
+            @BasePunches.started += instance.OnBasePunches;
+            @BasePunches.performed += instance.OnBasePunches;
+            @BasePunches.canceled += instance.OnBasePunches;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +300,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @SetRunning.started -= instance.OnSetRunning;
             @SetRunning.performed -= instance.OnSetRunning;
             @SetRunning.canceled -= instance.OnSetRunning;
+            @BasePunches.started -= instance.OnBasePunches;
+            @BasePunches.performed -= instance.OnBasePunches;
+            @BasePunches.canceled -= instance.OnBasePunches;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +326,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnChangeCameraStyle(InputAction.CallbackContext context);
         void OnSetRunning(InputAction.CallbackContext context);
+        void OnBasePunches(InputAction.CallbackContext context);
     }
 }
