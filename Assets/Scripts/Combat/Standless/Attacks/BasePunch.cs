@@ -16,9 +16,9 @@ namespace JJBG.Combat.Standless.Attacks
         [Header("Settings")]
         [SerializeField] private float _damage = 10f;
         [SerializeField] private float _knockback = 5f;
+        [SerializeField] private float _enemyStunDuration = 2f;
         [SerializeField] private float _lunge = 5f;
-        [Tooltip("In milliseconds")]
-        [SerializeField] private int _punchDelay = 500;
+        [Tooltip("In milliseconds"), SerializeField] private int _punchDelay = 500;
 
         private DynamicHitBox _hitBox;
         private Rigidbody _rb;
@@ -44,9 +44,11 @@ namespace JJBG.Combat.Standless.Attacks
 
             Health health = collider.GetComponentInChildren<Health>();
             Rigidbody rb = collider.GetComponentInChildren<Rigidbody>();
+            CombatState combatState = collider.GetComponentInParent<CombatState>();
 
             if (health) health.TakeDamage(_damage);
             if (rb) rb.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
+            if (combatState) combatState.SetStun(_enemyStunDuration);
 
             _rb.AddForce(_playerObj.forward * _lunge, ForceMode.Impulse);
         }
