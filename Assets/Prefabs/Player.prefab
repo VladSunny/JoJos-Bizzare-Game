@@ -50,6 +50,7 @@ MonoBehaviour:
   _damage: 10
   _knockback: 5
   _lunge: 5
+  _punchDelay: 500
 --- !u!1 &909084685568105416
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +165,7 @@ MonoBehaviour:
   _damage: 10
   _knockback: 5
   _lunge: 5
+  _punchDelay: 500
 --- !u!1 &2936424231030383882
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +302,7 @@ MonoBehaviour:
   _runSpeed: 6
   _groundDrag: 4
   _speedTransitionDuration: 0.2
+  _stunnedSpeed: 0.5
   _jumpForce: 6
   _jumpCooldown: 0.75
   _airMultiplier: 0.25
@@ -364,10 +367,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7019418778786090898}
   - {fileID: 7147362588295313534}
   - {fileID: 6024010375324811273}
   - {fileID: 6569130140143336692}
-  - {fileID: 7019418778786090898}
   m_Father: {fileID: 341980223490116229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6418044797570847134
@@ -382,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a3ec4dad80273aa9d51120a8ed237f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stunDuration: 1
 --- !u!1 &4673710833396831625
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +398,7 @@ GameObject:
   - component: {fileID: 3418774868480740059}
   - component: {fileID: 5888373909535514126}
   - component: {fileID: 7298854027016308677}
+  - component: {fileID: 633928938884618303}
   m_Layer: 0
   m_Name: CombatCore
   m_TagString: Untagged
@@ -470,6 +475,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _basePunches: {fileID: 6418044797570847134}
+--- !u!114 &633928938884618303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673710833396831625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b461233123b21a89adf22d172f6c1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentState: 0
+  _currentStun: 0
 --- !u!1 &7643254976831861709
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +539,7 @@ MonoBehaviour:
   _damage: 10
   _knockback: 5
   _lunge: 5
+  _punchDelay: 500
 --- !u!1 &9066148779077325692
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +590,7 @@ MonoBehaviour:
   _damage: 10
   _knockback: 5
   _lunge: 5
+  _punchDelay: 500
 --- !u!1001 &7686459945608967585
 PrefabInstance:
   m_ObjectHideFlags: 0

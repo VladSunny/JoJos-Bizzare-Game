@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 using JJBG.Check;
 
@@ -16,14 +15,23 @@ namespace JJBG.Movement
         [SerializeField] private float _groundDrag = 4;
         [SerializeField] private float _speedTransitionDuration = 0.2f;
 
+        [Header("Combat")]
+        [SerializeField] private float _stunnedSpeed = 0.5f;
+
         [Header("Jump")]
         [SerializeField] private float _jumpForce = 12;
         [SerializeField] private float _jumpCooldown = 0.25f;
         [SerializeField] private float _airMultiplier = 0.4f;
 
+        public enum MovementStates {
+            Walking,
+            Running,
+            Stunned
+        }
+        private MovementStates _movementState;
+
         private bool canJump = true;
         private bool _grounded;
-        private bool _isRunning = false;
         private float _currentSpeed;
         private float _targetSpeed;
 
@@ -39,8 +47,9 @@ namespace JJBG.Movement
 
             _rb.freezeRotation = true;
 
+            ChangeMovementState(MovementStates.Walking);
+
             _currentSpeed = _walkSpeed;
-            _targetSpeed = _walkSpeed;
         }
 
         private void Update()
@@ -95,17 +104,28 @@ namespace JJBG.Movement
             _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
         }
 
+        public void ChangeMovementState(MovementStates state)
+        {
+            _movementState = state;
+            switch (state)
+            {
+                case MovementStates.Walking:
+                    _targetSpeed = _walkSpeed;
+                    break;
+                case MovementStates.Running:
+                    _targetSpeed = _runSpeed;
+                    break;
+                case MovementStates.Stunned:
+                    _targetSpeed = _stunnedSpeed;
+                    break;
+            }
+        }
+
         private void ResetJump()
         {
             canJump = true;
         }
 
-        public void SetRunning(bool isRunning)
-        {
-            _isRunning = isRunning;
-            _targetSpeed = isRunning ? _runSpeed : _walkSpeed;
-        }
-
-        public bool IsRunning() => _isRunning;
+        public MovementStates GetMovementState() => _movementState;
     }
 }

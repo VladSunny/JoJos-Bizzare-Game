@@ -1,6 +1,8 @@
 using UnityEngine;
+using System.Threading;
 
 using JJBG.Core;
+using System.Threading.Tasks;
 
 namespace JJBG.Combat.Standless.Attacks
 {
@@ -15,6 +17,8 @@ namespace JJBG.Combat.Standless.Attacks
         [SerializeField] private float _damage = 10f;
         [SerializeField] private float _knockback = 5f;
         [SerializeField] private float _lunge = 5f;
+        [Tooltip("In milliseconds")]
+        [SerializeField] private int _punchDelay = 500;
 
         private DynamicHitBox _hitBox;
         private Rigidbody _rb;
@@ -24,8 +28,10 @@ namespace JJBG.Combat.Standless.Attacks
             _rb = GetComponentInParent<Rigidbody>();
         }
 
-        public void Attack() {
+        public async void Attack() {
             _animator.Play(_basePunchClip.name);
+
+            await Task.Delay(_punchDelay);
 
             _hitBox.CreateHitBox(Vector3.forward * 1f, new Vector3(1f, 1f, 1f), Hit, true);
         }
