@@ -49,6 +49,7 @@ MonoBehaviour:
   _basePunchClip: {fileID: 7400000, guid: c9925fb0467ac9d1eaf18f72b3b31d12, type: 2}
   _damage: 10
   _knockback: 5
+  _enemyStunDuration: 1
   _lunge: 5
   _punchDelay: 500
 --- !u!1 &909084685568105416
@@ -164,6 +165,7 @@ MonoBehaviour:
   _basePunchClip: {fileID: 7400000, guid: dcb2e8cbd360a3bc79b5bf2869075945, type: 2}
   _damage: 10
   _knockback: 5
+  _enemyStunDuration: 1
   _lunge: 5
   _punchDelay: 500
 --- !u!1 &2936424231030383882
@@ -398,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a3ec4dad80273aa9d51120a8ed237f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stunDuration: 1
+  _playerStunDuration: 0.85
   _cooldown: 3
   _timeForContinueCombo: 2
   _comboTimer: 0
@@ -555,6 +557,7 @@ MonoBehaviour:
   _basePunchClip: {fileID: 7400000, guid: f76bb084e6ca896ceadd771f9bd6cc78, type: 2}
   _damage: 10
   _knockback: 5
+  _enemyStunDuration: 1
   _lunge: 5
   _punchDelay: 500
 --- !u!1 &9066148779077325692
@@ -606,6 +609,7 @@ MonoBehaviour:
   _basePunchClip: {fileID: 7400000, guid: a5229219639fac16ba9db91832613965, type: 2}
   _damage: 10
   _knockback: 5
+  _enemyStunDuration: 1
   _lunge: 5
   _punchDelay: 500
 --- !u!1001 &7686459945608967585

@@ -44,7 +44,7 @@ namespace JJBG.Combat.Standless.Attacks
 
             Health health = collider.GetComponentInChildren<Health>();
             Rigidbody rb = collider.GetComponentInChildren<Rigidbody>();
-            CombatState combatState = collider.GetComponentInParent<CombatState>();
+            CombatState combatState = collider.GetComponentInChildren<CombatState>();
 
             if (health) health.TakeDamage(_damage);
             if (rb) rb.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
