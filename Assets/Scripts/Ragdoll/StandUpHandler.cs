@@ -4,16 +4,38 @@ namespace JJBG
 {
     public class StandUpHandler : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
+        [Header("Settings")]
+        [SerializeField] private float _timeToStandUp = 3f;
+
+        private RagdollHandler _ragdollHandler;
+
+        private float _standUpTimer = 0f;
+
+        private void Awake() {
+            _ragdollHandler = GetComponentInParent<RagdollHandler>();
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
+        private void OnEnable() {
+            _ragdollHandler.onRagdollChanged += OnRagdollChanged;
+        }
+
+        private void OnDisable() {
+            _ragdollHandler.onRagdollChanged -= OnRagdollChanged;
+        }
+
+        private void Update() {
+            if (_standUpTimer > 0) {
+                _standUpTimer -= Time.deltaTime;
+            }
+            else if (_ragdollHandler.IsRagdoll) {
+                _ragdollHandler.Disable();
+            }
+        }
+
+        private void OnRagdollChanged(bool isRagdoll) {
+            if (isRagdoll) {
+                _standUpTimer = _timeToStandUp;
+            }
         }
     }
 }
