@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11906018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05924111, y: 7.799585e-19, z: -1.4472369e-18, w: 0.9982437}
+  m_LocalRotation: {x: 0.05924111, y: -7.799585e-19, z: 1.4472369e-18, w: 0.9982437}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -519,6 +519,7 @@ MonoBehaviour:
   _playerObj: {fileID: 1103739136}
   _combatLookAt: {fileID: 916879793}
   _rigidbody: {fileID: 7208936497877316343}
+  _ragdollHandler: {fileID: 1061176677}
   _basicCam: {fileID: 1823365236}
   _combatCam: {fileID: 1402535800}
   _rotationSpeed: 7
@@ -1721,6 +1722,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7208936497877316338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1061176677 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3234762858019847726, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
+    type: 3}
+  m_PrefabInstance: {fileID: 7208936497877316338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cc55be70293ae05a165d91a99b99c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1086114198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,7 +2215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195300511}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16018225, y: 0.000000023309845, z: -0.000000003782667, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018222, y: 0.000000025470568, z: -0.0000000041333035, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3590,8 +3603,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082902516}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.030561596, y: 0.09247886, z: 0.0028398149, w: 0.9952415}
-  m_LocalPosition: {x: 0, y: -0.0000009536743, z: 0}
+  m_LocalRotation: {x: -0.030561596, y: 0.09247882, z: 0.0028398135, w: 0.9952415}
+  m_LocalPosition: {x: 0, y: -0.000005722046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3931,16 +3944,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1204015300473440447, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
+    - target: {fileID: 633928938884618303, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
         type: 3}
-      propertyPath: _knockback
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204015300473440447, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
-        type: 3}
-      propertyPath: _makeRagdoll
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: _ragdollHandler
+      value: 
+      objectReference: {fileID: 1061176677}
     - target: {fileID: 3396603568173407483, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
         type: 3}
       propertyPath: m_Name

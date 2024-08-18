@@ -41,11 +41,11 @@ namespace JJBG.Combat.Standless.Skills
         }
 
         public override void Activate() {
+            if (!_combatState.CanAttack()) return;
+            
             if (_cooldownTimer > 0) return;
 
             _comboTimer = _timeForContinueCombo;
-
-            if (!_combatState.CanAttack()) return;
 
             _combatState.SetStun(_playerStunDuration);
             _attacks[_currentAttack].Attack();

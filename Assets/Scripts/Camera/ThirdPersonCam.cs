@@ -12,6 +12,7 @@ namespace JJBG.Cam
         [SerializeField] private Transform _playerObj;
         [SerializeField] private Transform _combatLookAt;
         [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private RagdollHandler _ragdollHandler;
 
         [Header("Cameras")]
         [SerializeField] private CinemachineFreeLook _basicCam;
@@ -27,6 +28,8 @@ namespace JJBG.Cam
             Combat
         }
 
+        private bool _enabled = true;
+
         private void Awake() {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -34,7 +37,17 @@ namespace JJBG.Cam
             SetCameraStyle(_currentStyle);
         }
 
+        private void OnEnable() {
+            _ragdollHandler.onRagdollChanged += (bool isRagdoll) => { _enabled = !isRagdoll; };
+        }
+
+        private void OnDisable() {
+            _ragdollHandler.onRagdollChanged -= (bool isRagdoll) => { _enabled = !isRagdoll; };
+        }
+
         private void Update() {
+            if (!_enabled) return;
+
             if (_currentStyle == CameraStyle.Basic) {
                 Vector3 viewDir = _player.position - new Vector3(transform.position.x, _player.position.y, transform.position.z);
                 _orientation.forward = Vector3.Slerp(_orientation.forward, viewDir.normalized, Time.deltaTime * _updateOrientationSpeed);

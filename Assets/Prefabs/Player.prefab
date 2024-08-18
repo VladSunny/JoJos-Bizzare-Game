@@ -51,6 +51,7 @@ MonoBehaviour:
   _knockback: 5
   _enemyStunDuration: 1
   _lunge: 5
+  _makeRagdoll: 0
   _punchDelay: 500
 --- !u!1 &909084685568105416
 GameObject:
@@ -164,9 +165,10 @@ MonoBehaviour:
   _playerObj: {fileID: 3200135129794678778}
   _basePunchClip: {fileID: 7400000, guid: ff1778320b87a1568865aecc84f094e2, type: 2}
   _damage: 10
-  _knockback: 5
+  _knockback: 10
   _enemyStunDuration: 1
   _lunge: 5
+  _makeRagdoll: 1
   _punchDelay: 500
 --- !u!1 &2936424231030383882
 GameObject:
@@ -506,6 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b461233123b21a89adf22d172f6c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ragdollHandler: {fileID: 3234762858019847726}
   _currentState: 0
   _currentStun: 0
 --- !u!1 &7643254976831861709
@@ -559,6 +562,7 @@ MonoBehaviour:
   _knockback: 5
   _enemyStunDuration: 1
   _lunge: 5
+  _makeRagdoll: 0
   _punchDelay: 500
 --- !u!1 &9066148779077325692
 GameObject:
@@ -611,6 +615,7 @@ MonoBehaviour:
   _knockback: 5
   _enemyStunDuration: 1
   _lunge: 5
+  _makeRagdoll: 0
   _punchDelay: 500
 --- !u!1001 &9194229173004888344
 PrefabInstance:
@@ -620,6 +625,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3200135129794678778}
     m_Modifications:
+    - target: {fileID: 2867614410182838305, guid: 0354afe37fadb71839dc5d45e96395dd,
+        type: 3}
+      propertyPath: _debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2867614410182838305, guid: 0354afe37fadb71839dc5d45e96395dd,
+        type: 3}
+      propertyPath: _parent
+      value: 
+      objectReference: {fileID: 4446656089722098561}
+    - target: {fileID: 2867614410182838305, guid: 0354afe37fadb71839dc5d45e96395dd,
+        type: 3}
+      propertyPath: _groundLayerMask.m_Bits
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3549975529881249159, guid: 0354afe37fadb71839dc5d45e96395dd,
         type: 3}
       propertyPath: m_Controller
@@ -688,6 +708,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3306274471340172084}
+    - targetCorrespondingSourceObject: {fileID: 7849764905793824071, guid: 0354afe37fadb71839dc5d45e96395dd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3234762858019847726}
   m_SourcePrefab: {fileID: 100100000, guid: 0354afe37fadb71839dc5d45e96395dd, type: 3}
 --- !u!1 &1402731851240852575 stripped
 GameObject:
@@ -711,6 +735,23 @@ MonoBehaviour:
   _tiltFactor: 3
   _tiltSpeed: 5
   _maxAngle: 10
+--- !u!114 &3234762858019847726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402731851240852575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cc55be70293ae05a165d91a99b99c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parent: {fileID: 4446656089722098561}
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 9
+  _debug: 1
 --- !u!4 &1746360380053395173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7468137216822968317, guid: 0354afe37fadb71839dc5d45e96395dd,
