@@ -2,7 +2,7 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace JJBG.Camera
+namespace JJBG.Cam
 {
     public class ThirdPersonCam : MonoBehaviour
     {

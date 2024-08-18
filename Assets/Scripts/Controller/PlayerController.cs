@@ -1,7 +1,7 @@
 using UnityEngine;
 
 using JJBG.Movement;
-using JJBG.Camera;
+using JJBG.Cam;
 
 namespace JJBG.Controller
 {

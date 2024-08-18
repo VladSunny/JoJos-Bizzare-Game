@@ -18,6 +18,7 @@ namespace JJBG.Combat.Standless.Attacks
         [SerializeField] private float _knockback = 5f;
         [SerializeField] private float _enemyStunDuration = 2f;
         [SerializeField] private float _lunge = 5f;
+        [SerializeField] private bool _makeRagdoll = false;
         [Tooltip("In milliseconds"), SerializeField] private int _punchDelay = 500;
 
         private DynamicHitBox _hitBox;
@@ -43,12 +44,24 @@ namespace JJBG.Combat.Standless.Attacks
             Debug.Log(collider);
 
             Health health = collider.GetComponentInChildren<Health>();
-            Rigidbody rb = collider.GetComponentInChildren<Rigidbody>();
             CombatState combatState = collider.GetComponentInChildren<CombatState>();
 
             if (health) health.TakeDamage(_damage);
-            if (rb) rb.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
             if (combatState) combatState.SetStun(_enemyStunDuration);
+
+            if (_makeRagdoll) {
+                RagdollHandler ragdollHandler = collider.GetComponentInChildren<RagdollHandler>();
+                Animator animator = collider.GetComponentInChildren<Animator>();
+                Rigidbody hipsRigidbody = animator.GetBoneTransform(HumanBodyBones.Hips).GetComponent<Rigidbody>();
+
+                if (ragdollHandler) ragdollHandler.Enable();
+                if (hipsRigidbody) hipsRigidbody.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
+            }
+            else {
+                Rigidbody rb = collider.GetComponentInChildren<Rigidbody>();
+
+                if (rb) rb.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
+            }
 
             _rb.AddForce(_playerObj.forward * _lunge, ForceMode.Impulse);
         }

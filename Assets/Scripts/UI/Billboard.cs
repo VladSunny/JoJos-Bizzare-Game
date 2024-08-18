@@ -4,10 +4,14 @@ namespace JJBG.UI
 {
     public class Billboard : MonoBehaviour
     {
-        public Transform cam;
+        private Transform _camera;
+
+        private void Awake() {
+            _camera = Camera.main.transform;
+        }
 
         private void LateUpdate() {
-            transform.LookAt(transform.position + cam.forward);
+            transform.LookAt(transform.position + _camera.forward);
         }
     }
 }
