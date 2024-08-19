@@ -44,12 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5682554646000553119}
-  _playerObj: {fileID: 3200135129794678778}
-  _basePunchClip: {fileID: 7400000, guid: b4f6dfddf5ce699ea95240cc23eecd70, type: 2}
   _damage: 10
   _knockback: 5
-  _enemyStunDuration: 1
+  _enemyStunDuration: 1.5
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
@@ -161,12 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5682554646000553119}
-  _playerObj: {fileID: 3200135129794678778}
-  _basePunchClip: {fileID: 7400000, guid: ff1778320b87a1568865aecc84f094e2, type: 2}
   _damage: 10
-  _knockback: 10
-  _enemyStunDuration: 1
+  _knockback: 6
+  _enemyStunDuration: 1.5
   _lunge: 5
   _makeRagdoll: 1
   _punchDelay: 500
@@ -402,6 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a3ec4dad80273aa9d51120a8ed237f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerObj: {fileID: 3200135129794678778}
+  _animator: {fileID: 5682554646000553119}
   _playerStunDuration: 0.85
   _cooldown: 3
   _timeForContinueCombo: 2
@@ -555,12 +551,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5682554646000553119}
-  _playerObj: {fileID: 3200135129794678778}
-  _basePunchClip: {fileID: 7400000, guid: f6bd18fbaa552f90faded452221ba4b8, type: 2}
   _damage: 10
   _knockback: 5
-  _enemyStunDuration: 1
+  _enemyStunDuration: 1.5
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
@@ -608,12 +601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 5682554646000553119}
-  _playerObj: {fileID: 3200135129794678778}
-  _basePunchClip: {fileID: 7400000, guid: 22ccb15220fa323db94041c23bbe2dcd, type: 2}
   _damage: 10
   _knockback: 5
-  _enemyStunDuration: 1
+  _enemyStunDuration: 1.5
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
@@ -768,7 +758,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf4a654a8307b7d29e83c6643d7401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _combatState: {fileID: 633928938884618303}
   _timeToStandUp: 3
+  _standUpDuration: 2
 --- !u!4 &1746360380053395173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7468137216822968317, guid: 0354afe37fadb71839dc5d45e96395dd,

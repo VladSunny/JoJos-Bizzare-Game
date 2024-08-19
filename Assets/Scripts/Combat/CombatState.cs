@@ -55,7 +55,7 @@ namespace JJBG.Combat
         }
 
         public bool CanAttack() {
-            return _currentState == CombatStates.Idle;
+            return _currentState == CombatStates.Idle && _currentStun <= 0;
         }
 
         public void SetStun(float stun) {

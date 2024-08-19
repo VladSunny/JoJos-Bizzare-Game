@@ -8,10 +8,8 @@ namespace JJBG.Combat.Standless.Attacks
 {
     public class BasePunch : MonoBehaviour, IAttack
     {
-        [Header("References")]
-        [SerializeField] private Animator _animator;
-        [SerializeField] private Transform _playerObj;
-        [SerializeField] private AnimationClip _basePunchClip;
+        [Header("Name of object should be name of clip in animator")]
+        [Space(20)]
 
         [Header("Settings")]
         [SerializeField] private float _damage = 10f;
@@ -21,16 +19,24 @@ namespace JJBG.Combat.Standless.Attacks
         [SerializeField] private bool _makeRagdoll = false;
         [Tooltip("In milliseconds"), SerializeField] private int _punchDelay = 500;
 
+        private Animator _animator;
+        private Transform _playerObj;
         private DynamicHitBox _hitBox;
         private Rigidbody _rb;
+        private string _basePunchClipName;
 
-        private void Awake() {
+        public void Initialize(Animator animator, Transform playerObj) {
+            _animator = animator;
+            _playerObj = playerObj;
+
             _hitBox = GetComponentInParent<DynamicHitBox>();
             _rb = GetComponentInParent<Rigidbody>();
+
+            _basePunchClipName = gameObject.name;
         }
 
         public async void Attack() {
-            _animator.Play(_basePunchClip.name);
+            _animator.Play(_basePunchClipName);
 
             await Task.Delay(_punchDelay);
 

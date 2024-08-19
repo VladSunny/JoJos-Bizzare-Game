@@ -1,10 +1,16 @@
 using JJBG.Attributes;
 using UnityEngine;
 
+using JJBG.Combat.Standless.Attacks;
+
 namespace JJBG.Combat.Standless.Skills
 {
     public class BasePunches : SkillBase
     {
+        [Header("References")]
+        [SerializeField] private Transform _playerObj;
+        [SerializeField] private Animator _animator;
+
         [Header("Settings")]
         [SerializeField] private float _playerStunDuration = 2f;
         [SerializeField] private float _cooldown = 3f;
@@ -15,13 +21,17 @@ namespace JJBG.Combat.Standless.Skills
         [SerializeField, ReadOnly] private float _cooldownTimer = 0f;
 
         private CombatState _combatState;
-
-        private IAttack[] _attacks;
+        private BasePunch[] _attacks;
+        
         private int _currentAttack = 0;
 
         private void Awake() {
-            _attacks = GetComponentsInChildren<IAttack>();
+            _attacks = GetComponentsInChildren<BasePunch>();
             _combatState = GetComponentInParent<CombatState>();
+
+            for (int i = 0; i < _attacks.Length; i++) {
+                _attacks[i].Initialize(_animator, _playerObj);
+            }
         }
 
         private void Update() {
