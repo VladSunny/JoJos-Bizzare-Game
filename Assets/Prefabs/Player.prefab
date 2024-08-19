@@ -760,7 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _combatState: {fileID: 633928938884618303}
   _timeToStandUp: 3
-  _standUpDuration: 2
+  _standUpDuration: 1.5
 --- !u!4 &1746360380053395173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7468137216822968317, guid: 0354afe37fadb71839dc5d45e96395dd,
