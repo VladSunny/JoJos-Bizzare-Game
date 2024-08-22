@@ -173,7 +173,7 @@ MonoBehaviour:
   _hideHandler: {fileID: 5827198257280587323}
   _SPMovement: {fileID: 7156984872670050534}
   _enabled: 0
-  _hideDuration: 1000
+  _hideDuration: 300
   _cooldown: 2
   _cooldownTimer: 0
 --- !u!1001 &268671041101690560

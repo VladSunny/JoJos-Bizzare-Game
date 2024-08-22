@@ -46,8 +46,6 @@ namespace JJBG.Combat.Standless.Attacks
         private void Hit(Collider collider) {
             if (collider.GetComponentInChildren<DynamicHitBox>() == _hitBox)
                         return;
-                    
-            Debug.Log(collider);
 
             Health health = collider.GetComponentInChildren<Health>();
             CombatState combatState = collider.GetComponentInChildren<CombatState>();
