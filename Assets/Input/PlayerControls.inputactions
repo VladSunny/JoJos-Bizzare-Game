@@ -152,6 +152,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "StarPlatinum",
+            "id": "732774c3-05ac-439f-9bd9-c40d55b65801",
+            "actions": [
+                {
+                    "name": "Summon",
+                    "type": "Button",
+                    "id": "8f297c47-5b95-4b1c-a045-7aea21c20c00",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "01280c57-7878-41dc-95e1-76e3321105a4",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Summon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

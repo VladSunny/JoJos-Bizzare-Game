@@ -557,6 +557,7 @@ MonoBehaviour:
     type: 3}
   _playerObj: {fileID: 3200135129794678778}
   _idlePosition: {fileID: 6369759093637056552}
+  _controller: 1
 --- !u!1 &6634980427599335909
 GameObject:
   m_ObjectHideFlags: 0

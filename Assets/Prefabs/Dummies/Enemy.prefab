@@ -337,6 +337,11 @@ PrefabInstance:
       propertyPath: _debug
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7580935500050072685, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
+        type: 3}
+      propertyPath: _controller
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8917625961096144048, guid: f34904d8f745d2d17bc40a1ed0f3ec43, type: 3}
     - {fileID: 7298854027016308677, guid: f34904d8f745d2d17bc40a1ed0f3ec43, type: 3}

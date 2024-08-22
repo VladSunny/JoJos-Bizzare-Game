@@ -174,6 +174,34 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""StarPlatinum"",
+            ""id"": ""732774c3-05ac-439f-9bd9-c40d55b65801"",
+            ""actions"": [
+                {
+                    ""name"": ""Summon"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f297c47-5b95-4b1c-a045-7aea21c20c00"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""01280c57-7878-41dc-95e1-76e3321105a4"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Summon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -185,6 +213,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_ChangeCameraStyle = m_Player.FindAction("ChangeCameraStyle", throwIfNotFound: true);
         m_Player_SetRunning = m_Player.FindAction("SetRunning", throwIfNotFound: true);
         m_Player_BasePunches = m_Player.FindAction("BasePunches", throwIfNotFound: true);
+        // StarPlatinum
+        m_StarPlatinum = asset.FindActionMap("StarPlatinum", throwIfNotFound: true);
+        m_StarPlatinum_Summon = m_StarPlatinum.FindAction("Summon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -320,6 +351,52 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // StarPlatinum
+    private readonly InputActionMap m_StarPlatinum;
+    private List<IStarPlatinumActions> m_StarPlatinumActionsCallbackInterfaces = new List<IStarPlatinumActions>();
+    private readonly InputAction m_StarPlatinum_Summon;
+    public struct StarPlatinumActions
+    {
+        private @PlayerControls m_Wrapper;
+        public StarPlatinumActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Summon => m_Wrapper.m_StarPlatinum_Summon;
+        public InputActionMap Get() { return m_Wrapper.m_StarPlatinum; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(StarPlatinumActions set) { return set.Get(); }
+        public void AddCallbacks(IStarPlatinumActions instance)
+        {
+            if (instance == null || m_Wrapper.m_StarPlatinumActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_StarPlatinumActionsCallbackInterfaces.Add(instance);
+            @Summon.started += instance.OnSummon;
+            @Summon.performed += instance.OnSummon;
+            @Summon.canceled += instance.OnSummon;
+        }
+
+        private void UnregisterCallbacks(IStarPlatinumActions instance)
+        {
+            @Summon.started -= instance.OnSummon;
+            @Summon.performed -= instance.OnSummon;
+            @Summon.canceled -= instance.OnSummon;
+        }
+
+        public void RemoveCallbacks(IStarPlatinumActions instance)
+        {
+            if (m_Wrapper.m_StarPlatinumActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IStarPlatinumActions instance)
+        {
+            foreach (var item in m_Wrapper.m_StarPlatinumActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_StarPlatinumActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public StarPlatinumActions @StarPlatinum => new StarPlatinumActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -327,5 +404,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnChangeCameraStyle(InputAction.CallbackContext context);
         void OnSetRunning(InputAction.CallbackContext context);
         void OnBasePunches(InputAction.CallbackContext context);
+    }
+    public interface IStarPlatinumActions
+    {
+        void OnSummon(InputAction.CallbackContext context);
     }
 }
