@@ -1,6 +1,9 @@
-namespace JJBG.Combat {
+using Cysharp.Threading.Tasks;
+
+namespace JJBG.Combat
+{
     public interface IAttack
     {
-        void Attack();
+        UniTask Attack();
     }
 }

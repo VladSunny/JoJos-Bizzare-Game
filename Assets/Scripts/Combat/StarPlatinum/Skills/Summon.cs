@@ -2,12 +2,11 @@ using JJBG.Attributes;
 using JJBG.Movement;
 using UnityEngine;
 
-using Cysharp.Threading;
 using Cysharp.Threading.Tasks;
 
 namespace JJBG.Combat.StarPlatinum.Skills
 {
-    public class Summon : MonoBehaviour, ISkill
+    public class Summon : SkillBase
     {
         [Header("References")]
         [SerializeField] private HideHandler _hideHandler;
@@ -21,28 +20,42 @@ namespace JJBG.Combat.StarPlatinum.Skills
         [Header("Timers")]
         [ReadOnly, SerializeField] private float _cooldownTimer = 0f;
 
-        private void Start() {
+        private CombatState _combatState;
+
+        public override void Initialize(CombatState combatState)
+        {
+            _combatState = combatState;
+        }
+
+        private void Start()
+        {
             _enabled = !_enabled;
             Activate();
         }
 
-        private void Update() {
+        private void Update()
+        {
             if (_cooldownTimer >= 0)
                 _cooldownTimer -= Time.deltaTime;
         }
 
-        public async void Activate()
+        public override async void Activate()
         {
             if (_cooldownTimer > 0) return;
 
             _enabled = !_enabled;
             _cooldownTimer = _cooldown;
 
-            if (_enabled) {
-                _hideHandler.Show();
-                _SPMovement.movementState = MovementState.Idle;
+            if (_enabled)
+            {
+                if (_combatState.CanAttack())
+                {
+                    _hideHandler.Show();
+                    _SPMovement.movementState = MovementState.Idle;
+                }
             }
-            else {
+            else
+            {
                 _SPMovement.movementState = MovementState.Hiding;
 
                 await UniTask.Delay(_hideDuration);

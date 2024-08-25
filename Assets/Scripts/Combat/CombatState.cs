@@ -10,7 +10,8 @@ namespace JJBG.Combat
         [SerializeField] private RagdollHandler _ragdollHandler;
 
         public event Action<CombatStates> OnStateChange;
-        public enum CombatStates {
+        public enum CombatStates
+        {
             Idle,
             Falled,
             Stunned
@@ -19,46 +20,67 @@ namespace JJBG.Combat
         [SerializeField, ReadOnly] private CombatStates _currentState = CombatStates.Idle;
         [SerializeField, ReadOnly] private float _currentStun = 0f;
 
-        private void OnEnable() {
+        private void Awake()
+        {
+            SkillBase[] skills = GetComponentsInChildren<SkillBase>();
+
+            for (int i = 0; i < skills.Length; i++)
+            {
+                skills[i].Initialize(this);
+            }
+        }
+
+        private void OnEnable()
+        {
             _ragdollHandler.onRagdollChanged += OnRagdollChanged;
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             _ragdollHandler.onRagdollChanged -= OnRagdollChanged;
         }
 
-        private void OnRagdollChanged(bool isRagdoll) {
-            if (isRagdoll) {
+        private void OnRagdollChanged(bool isRagdoll)
+        {
+            if (isRagdoll)
+            {
                 _currentState = CombatStates.Falled;
                 OnStateChange?.Invoke(_currentState);
             }
-            else {
+            else
+            {
                 _currentState = CombatStates.Idle;
                 OnStateChange?.Invoke(_currentState);
             }
         }
 
-        private void Update() {
+        private void Update()
+        {
             if (_currentState == CombatStates.Falled) return;
-            
-            if (_currentStun > 0) {
-                if (_currentState != CombatStates.Stunned) {
+
+            if (_currentStun > 0)
+            {
+                if (_currentState != CombatStates.Stunned)
+                {
                     _currentState = CombatStates.Stunned;
                     OnStateChange?.Invoke(_currentState);
                 }
                 _currentStun -= Time.deltaTime;
             }
-            else if (_currentState == CombatStates.Stunned) {
+            else if (_currentState == CombatStates.Stunned)
+            {
                 _currentState = CombatStates.Idle;
                 OnStateChange?.Invoke(_currentState);
             }
         }
 
-        public bool CanAttack() {
+        public bool CanAttack()
+        {
             return _currentState == CombatStates.Idle && _currentStun <= 0;
         }
 
-        public void SetStun(float stun) {
+        public void SetStun(float stun)
+        {
             _currentStun = stun;
         }
     }

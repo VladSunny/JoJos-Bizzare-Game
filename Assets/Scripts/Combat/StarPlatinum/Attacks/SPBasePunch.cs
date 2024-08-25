@@ -2,7 +2,7 @@ using UnityEngine;
 
 using JJBG.Combat.Standless.Attacks;
 using JJBG.Movement;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 namespace JJBG.Combat.StarPlatinum.Attacks
 {
@@ -11,11 +11,11 @@ namespace JJBG.Combat.StarPlatinum.Attacks
         [Header("References")]
         [SerializeField] private StarPlatinumMovement _starPlatinumMovement;
 
-        public override async void Attack() {
+        public override async UniTask Attack()
+        {
             _starPlatinumMovement.movementState = MovementState.Attacking;
-            
-            base.Attack();
-            await Task.Delay(_punchDelay);
+
+            await base.Attack();
 
             _starPlatinumMovement.movementState = MovementState.Idle;
         }

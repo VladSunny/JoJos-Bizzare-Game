@@ -555,8 +555,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _SPPrefab: {fileID: 3171251451661458221, guid: d724cd404e37447a89c0a4d33b598b3b,
     type: 3}
+  _combatState: {fileID: 633928938884618303}
   _playerObj: {fileID: 3200135129794678778}
   _idlePosition: {fileID: 6369759093637056552}
+  _attackPosition: {fileID: 0}
   _controller: 1
 --- !u!1 &6634980427599335909
 GameObject:
