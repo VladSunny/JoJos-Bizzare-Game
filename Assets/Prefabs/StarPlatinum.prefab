@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changePositionSpeed: 15
+  _rotationSpeed: 15
   _eps: 0.01
   movementState: 0
 --- !u!1 &6840319041982072126

@@ -17,7 +17,7 @@ namespace JJBG.Combat.Standless.Attacks
         [SerializeField] private float _enemyStunDuration = 2f;
         [SerializeField] private float _lunge = 5f;
         [SerializeField] private bool _makeRagdoll = false;
-        [Tooltip("In milliseconds"), SerializeField] private int _punchDelay = 500;
+        [Tooltip("In milliseconds"), SerializeField] protected int _punchDelay = 500;
 
         private Animator _animator;
         private Transform _playerObj;
@@ -35,7 +35,7 @@ namespace JJBG.Combat.Standless.Attacks
             _basePunchClipName = gameObject.name;
         }
 
-        public async void Attack() {
+        public virtual async void Attack() {
             _animator.Play(_basePunchClipName);
 
             await Task.Delay(_punchDelay);

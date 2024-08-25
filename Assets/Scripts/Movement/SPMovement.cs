@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 namespace JJBG.Movement
 {
@@ -13,6 +14,7 @@ namespace JJBG.Movement
         
         [Header("Settings")]
         [SerializeField] private float _changePositionSpeed = 10f;
+        [SerializeField] private float _rotationSpeed = 10f;
         [SerializeField] private float _eps = 0.01f;
 
         private Transform _idlePosition;
@@ -23,9 +25,10 @@ namespace JJBG.Movement
 
         public MovementState movementState = MovementState.Idle;
 
-        public void Initialize(Transform idlePosition, Transform playerObj) {
+        public void Initialize(Transform idlePosition, Transform playerObj, Transform attackPosition) {
             _idlePosition = idlePosition;
             _playerObj = playerObj;
+            _attackPosition = attackPosition;
         }
 
         private void Update() {
@@ -42,13 +45,15 @@ namespace JJBG.Movement
                     _targetPosition = _attackPosition.position;
                     break;
             }
+
+            MoveToTraget();
         }
 
-        private void LateUpdate() {
+        private void MoveToTraget() {
             if (Vector3.Distance(transform.position, _targetPosition) > _eps)
                 transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _changePositionSpeed);
             
-            transform.forward = _playerObj.forward;
+            transform.forward = Vector3.Slerp(transform.forward, _playerObj.forward, Time.deltaTime * _rotationSpeed);
         }
 
     }
