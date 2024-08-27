@@ -4,7 +4,7 @@ using UnityEngine;
 using JJBG.Combat.Standless.Attacks;
 using Cysharp.Threading.Tasks;
 
-namespace JJBG.Combat.Standless.Skills
+namespace JJBG.Combat.Skills
 {
     public class BasePunches : SkillBase
     {

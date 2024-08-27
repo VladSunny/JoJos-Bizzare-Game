@@ -1,6 +1,6 @@
 using UnityEngine;
 
-using JJBG.Combat.Standless.Skills;
+using JJBG.Combat.Skills;
 
 namespace JJBG.Controller
 {

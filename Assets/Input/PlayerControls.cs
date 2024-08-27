@@ -187,6 +187,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BasePunches"",
+                    ""type"": ""Button"",
+                    ""id"": ""277f5f43-755b-43fc-a572-42cb1f286957"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -198,6 +207,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Summon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09df84e6-82c8-42a9-bb2f-1787b595765d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasePunches"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -216,6 +236,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // StarPlatinum
         m_StarPlatinum = asset.FindActionMap("StarPlatinum", throwIfNotFound: true);
         m_StarPlatinum_Summon = m_StarPlatinum.FindAction("Summon", throwIfNotFound: true);
+        m_StarPlatinum_BasePunches = m_StarPlatinum.FindAction("BasePunches", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,11 +377,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_StarPlatinum;
     private List<IStarPlatinumActions> m_StarPlatinumActionsCallbackInterfaces = new List<IStarPlatinumActions>();
     private readonly InputAction m_StarPlatinum_Summon;
+    private readonly InputAction m_StarPlatinum_BasePunches;
     public struct StarPlatinumActions
     {
         private @PlayerControls m_Wrapper;
         public StarPlatinumActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Summon => m_Wrapper.m_StarPlatinum_Summon;
+        public InputAction @BasePunches => m_Wrapper.m_StarPlatinum_BasePunches;
         public InputActionMap Get() { return m_Wrapper.m_StarPlatinum; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -373,6 +396,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Summon.started += instance.OnSummon;
             @Summon.performed += instance.OnSummon;
             @Summon.canceled += instance.OnSummon;
+            @BasePunches.started += instance.OnBasePunches;
+            @BasePunches.performed += instance.OnBasePunches;
+            @BasePunches.canceled += instance.OnBasePunches;
         }
 
         private void UnregisterCallbacks(IStarPlatinumActions instance)
@@ -380,6 +406,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Summon.started -= instance.OnSummon;
             @Summon.performed -= instance.OnSummon;
             @Summon.canceled -= instance.OnSummon;
+            @BasePunches.started -= instance.OnBasePunches;
+            @BasePunches.performed -= instance.OnBasePunches;
+            @BasePunches.canceled -= instance.OnBasePunches;
         }
 
         public void RemoveCallbacks(IStarPlatinumActions instance)
@@ -408,5 +437,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IStarPlatinumActions
     {
         void OnSummon(InputAction.CallbackContext context);
+        void OnBasePunches(InputAction.CallbackContext context);
     }
 }
