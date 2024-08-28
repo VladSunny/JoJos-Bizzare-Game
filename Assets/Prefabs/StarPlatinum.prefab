@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8171943433620472613}
-  - component: {fileID: 5690355997406008482}
+  - component: {fileID: 5768311559814692059}
   m_Layer: 0
   m_Name: MediumPunch
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8039944746506321486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5690355997406008482
+--- !u!114 &5768311559814692059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 78906867351347163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f007976fcf6d0daaa584ecc7ec32bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
@@ -50,6 +50,7 @@ MonoBehaviour:
   _lunge: 5
   _makeRagdoll: 1
   _punchDelay: 500
+  _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &564597311873049467
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6192200378242576420}
-  - component: {fileID: 8085024594648124863}
+  - component: {fileID: 1113833196139437960}
   m_Layer: 0
   m_Name: LightPunch
   m_TagString: Untagged
@@ -182,7 +183,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8039944746506321486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8085024594648124863
+--- !u!114 &1113833196139437960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1732611982678339438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f007976fcf6d0daaa584ecc7ec32bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
@@ -200,6 +201,7 @@ MonoBehaviour:
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &2590658406857947643
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8289979947266133843}
-  - component: {fileID: 4780234176824233592}
+  - component: {fileID: 1213137684609383280}
   m_Layer: 0
   m_Name: HeavyPunch
   m_TagString: Untagged
@@ -232,7 +234,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8039944746506321486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4780234176824233592
+--- !u!114 &1213137684609383280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2590658406857947643}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f007976fcf6d0daaa584ecc7ec32bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
@@ -250,6 +252,7 @@ MonoBehaviour:
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &3171251451661458221
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2703019418750066029}
-  - component: {fileID: 4868547212894276251}
+  - component: {fileID: 5041165331772830045}
   m_Layer: 0
   m_Name: LightKick
   m_TagString: Untagged
@@ -436,7 +439,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8039944746506321486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4868547212894276251
+--- !u!114 &5041165331772830045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,7 +448,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8783468690808412212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3c5ca1266483d83a55855ec1043cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f007976fcf6d0daaa584ecc7ec32bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
@@ -454,6 +457,7 @@ MonoBehaviour:
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1001 &268671041101690560
 PrefabInstance:
   m_ObjectHideFlags: 0

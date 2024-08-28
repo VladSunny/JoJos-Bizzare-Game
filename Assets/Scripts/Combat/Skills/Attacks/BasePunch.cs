@@ -73,7 +73,8 @@ namespace JJBG.Combat.Standless.Attacks
                 if (rb) rb.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
             }
 
-            _rb.AddForce(_playerObj.forward * _lunge, ForceMode.Impulse);
+            if (_rb)
+                _rb.AddForce(_playerObj.forward * _lunge, ForceMode.Impulse);
         }
     }
 }

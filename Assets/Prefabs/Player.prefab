@@ -404,6 +404,37 @@ MonoBehaviour:
   _timeForContinueCombo: 2
   _comboTimer: 0
   _cooldownTimer: 0
+--- !u!1 &4598574108684219145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6138437493590834685}
+  m_Layer: 0
+  m_Name: AttackPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6138437493590834685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598574108684219145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.801}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7343136188513905005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4673710833396831625
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +570,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6369759093637056552}
+  - {fileID: 6138437493590834685}
   m_Father: {fileID: 3200135129794678778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7580935500050072685
@@ -558,7 +590,7 @@ MonoBehaviour:
   _combatState: {fileID: 633928938884618303}
   _playerObj: {fileID: 3200135129794678778}
   _idlePosition: {fileID: 6369759093637056552}
-  _attackPosition: {fileID: 0}
+  _attackPosition: {fileID: 6138437493590834685}
   _controller: 1
 --- !u!1 &6634980427599335909
 GameObject:

@@ -1,3 +1,4 @@
+using JJBG.Combat.Skills;
 using JJBG.Combat.StarPlatinum.Skills;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace JJBG.Controller
     public class SPController : MonoBehaviour
     {
         private Summon _summon;
+        private BasePunches _basePunches;
 
         private PlayerControls _playerControls;
         private GameObject _starPlatinum;
@@ -21,6 +23,7 @@ namespace JJBG.Controller
 
         private void Start() {
             _summon = _starPlatinum.GetComponentInChildren<Summon>();
+            _basePunches = _starPlatinum.GetComponentInChildren<BasePunches>();
         }
 
         private void OnEnable()
@@ -37,6 +40,10 @@ namespace JJBG.Controller
         {
             if (_playerControls.StarPlatinum.Summon.triggered) {
                 _summon.Activate();
+            }
+
+            if (_playerControls.StarPlatinum.BasePunches.triggered) {
+                _basePunches.Activate();
             }
         }
     }

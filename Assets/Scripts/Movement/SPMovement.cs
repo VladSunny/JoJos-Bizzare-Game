@@ -1,5 +1,5 @@
+using JJBG.Attributes;
 using UnityEngine;
-using DG.Tweening;
 
 namespace JJBG.Movement
 {
@@ -17,6 +17,9 @@ namespace JJBG.Movement
         [SerializeField] private float _rotationSpeed = 10f;
         [SerializeField] private float _eps = 0.01f;
 
+        [Header("Timers")]
+        [SerializeField, ReadOnly] public float _attackingTimer = 0f;
+
         private Transform _idlePosition;
         private Transform _playerObj;
         private Transform _attackPosition;
@@ -33,6 +36,14 @@ namespace JJBG.Movement
 
         private void Update() {
             if (_playerObj == null || _idlePosition == null) return;
+
+            if (_attackingTimer > 0) {
+                movementState = MovementState.Attacking;
+                _attackingTimer -= Time.deltaTime;
+            }
+            else if (movementState == MovementState.Attacking) {
+                movementState = MovementState.Idle;
+            }
             
             switch (movementState) {
                 case MovementState.Idle:
