@@ -60,7 +60,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Combat Layer
+  m_Name: BasePunches
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8913718940956391857}
@@ -185,9 +185,9 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
   - serializedVersion: 5
-    m_Name: Combat Layer
+    m_Name: BasePunches
     m_StateMachine: {fileID: -8589118163898983409}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: b40c84d308999f64797b05f6a2f324af, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0

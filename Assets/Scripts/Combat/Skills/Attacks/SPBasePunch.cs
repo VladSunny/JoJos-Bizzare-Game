@@ -16,11 +16,8 @@ namespace JJBG.Combat.StarPlatinum.Attacks
 
         public override async UniTask Attack()
         {
-            _starPlatinumMovement.movementState = MovementState.Attacking;
-
+            _starPlatinumMovement.attackingTimer = _delayDuration;
             await base.Attack();
-
-            _starPlatinumMovement._attackingTimer = _delayDuration;
         }
     }
 }

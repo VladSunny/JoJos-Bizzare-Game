@@ -3,22 +3,26 @@ using UnityEngine;
 
 namespace JJBG.Movement
 {
-    public enum MovementState {
-            Idle,
-            Hiding,
-            Attacking
+    public enum MovementState
+    {
+        Idle,
+        Hiding,
+        Attacking
     }
 
     public class StarPlatinumMovement : MonoBehaviour
     {
-        
+
         [Header("Settings")]
-        [SerializeField] private float _changePositionSpeed = 10f;
+        [SerializeField] private float _idleMovementSpeed = 10f;
+        [SerializeField] private float _combatMovementSpeed = 20f;
         [SerializeField] private float _rotationSpeed = 10f;
         [SerializeField] private float _eps = 0.01f;
 
         [Header("Timers")]
-        [SerializeField, ReadOnly] public float _attackingTimer = 0f;
+        [SerializeField, ReadOnly] public float attackingTimer = 0f;
+
+        private float _changePositionSpeed = 0f;
 
         private Transform _idlePosition;
         private Transform _playerObj;
@@ -28,42 +32,51 @@ namespace JJBG.Movement
 
         public MovementState movementState = MovementState.Idle;
 
-        public void Initialize(Transform idlePosition, Transform playerObj, Transform attackPosition) {
+        public void Initialize(Transform idlePosition, Transform playerObj, Transform attackPosition)
+        {
             _idlePosition = idlePosition;
             _playerObj = playerObj;
             _attackPosition = attackPosition;
         }
 
-        private void Update() {
+        private void Update()
+        {
             if (_playerObj == null || _idlePosition == null) return;
 
-            if (_attackingTimer > 0) {
+            if (attackingTimer > 0)
+            {
                 movementState = MovementState.Attacking;
-                _attackingTimer -= Time.deltaTime;
+                attackingTimer -= Time.deltaTime;
             }
-            else if (movementState == MovementState.Attacking) {
+            else if (movementState == MovementState.Attacking)
+            {
                 movementState = MovementState.Idle;
             }
-            
-            switch (movementState) {
+
+            switch (movementState)
+            {
                 case MovementState.Idle:
                     _targetPosition = _idlePosition.position;
+                    _changePositionSpeed = _idleMovementSpeed;
                     break;
                 case MovementState.Hiding:
                     _targetPosition = _playerObj.position;
+                    _changePositionSpeed = _idleMovementSpeed;
                     break;
                 case MovementState.Attacking:
                     _targetPosition = _attackPosition.position;
+                    _changePositionSpeed = _combatMovementSpeed;
                     break;
             }
 
             MoveToTraget();
         }
 
-        private void MoveToTraget() {
+        private void MoveToTraget()
+        {
             if (Vector3.Distance(transform.position, _targetPosition) > _eps)
                 transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _changePositionSpeed);
-            
+
             transform.forward = Vector3.Slerp(transform.forward, _playerObj.forward, Time.deltaTime * _rotationSpeed);
         }
 

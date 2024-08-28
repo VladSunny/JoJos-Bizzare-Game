@@ -17,11 +17,13 @@ namespace JJBG.Controller
             _playerControls = new PlayerControls();
         }
 
-        public void Initialize(GameObject starPlatinum) {
+        public void Initialize(GameObject starPlatinum)
+        {
             _starPlatinum = starPlatinum;
         }
 
-        private void Start() {
+        private void Start()
+        {
             _summon = _starPlatinum.GetComponentInChildren<Summon>();
             _basePunches = _starPlatinum.GetComponentInChildren<BasePunches>();
         }
@@ -38,11 +40,13 @@ namespace JJBG.Controller
 
         private void Update()
         {
-            if (_playerControls.StarPlatinum.Summon.triggered) {
+            if (_playerControls.StarPlatinum.Summon.triggered)
+            {
                 _summon.Activate();
             }
 
-            if (_playerControls.StarPlatinum.BasePunches.triggered) {
+            if (_playerControls.StarPlatinum.BasePunches.triggered)
+            {
                 _basePunches.Activate();
             }
         }

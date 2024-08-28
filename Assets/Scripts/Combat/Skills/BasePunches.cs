@@ -13,6 +13,7 @@ namespace JJBG.Combat.Skills
         [SerializeField] private Animator _animator;
 
         [Header("Settings")]
+        [SerializeField] private CombatTypes _combatType = CombatTypes.Standless;
         [SerializeField] private float _playerStunDuration = 2f;
         [SerializeField] private float _cooldown = 3f;
         [SerializeField] private float _timeForContinueCombo = 2.5f;
@@ -63,7 +64,7 @@ namespace JJBG.Combat.Skills
 
         public override void Activate()
         {
-            if (!_combatState.CanAttack()) return;
+            if (!_combatState.CanAttack(_combatType)) return;
 
             if (_cooldownTimer > 0) return;
 

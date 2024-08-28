@@ -8,23 +8,27 @@ namespace JJBG.Movement
         private CombatState _combatState;
         private CharacterMovement _characterMovement;
 
-        private void Awake() {
+        private void Awake()
+        {
             _combatState = GetComponentInChildren<CombatState>();
             _characterMovement = GetComponent<CharacterMovement>();
         }
 
-        private void OnEnable() {
+        private void OnEnable()
+        {
             _combatState.OnStateChange += OnCombatStateChanged;
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             _combatState.OnStateChange -= OnCombatStateChanged;
         }
 
-        private void OnCombatStateChanged(CombatState.CombatStates state) {
-            if (state == CombatState.CombatStates.Stunned)
+        private void OnCombatStateChanged(CombatStates state)
+        {
+            if (state == CombatStates.Stunned)
                 _characterMovement.ChangeMovementState(CharacterMovement.MovementStates.Stunned);
-            if (state == CombatState.CombatStates.Idle)
+            if (state == CombatStates.Idle)
                 _characterMovement.ChangeMovementState(CharacterMovement.MovementStates.Walking);
         }
     }

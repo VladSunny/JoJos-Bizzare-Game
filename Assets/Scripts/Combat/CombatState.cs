@@ -4,21 +4,34 @@ using UnityEngine;
 
 namespace JJBG.Combat
 {
+    public enum CombatStates
+    {
+        Idle,
+        Falled,
+        Stunned
+    }
+
+    public enum CombatTypes
+    {
+        Standless,
+        Stand
+    }
+
     public class CombatState : MonoBehaviour
     {
         [Header("References")]
         [SerializeField] private RagdollHandler _ragdollHandler;
 
         public event Action<CombatStates> OnStateChange;
-        public enum CombatStates
-        {
-            Idle,
-            Falled,
-            Stunned
-        }
 
         [SerializeField, ReadOnly] private CombatStates _currentState = CombatStates.Idle;
+        [SerializeField, ReadOnly] private CombatTypes _combatType = CombatTypes.Standless;
         [SerializeField, ReadOnly] private float _currentStun = 0f;
+
+        public void SetCombatType(CombatTypes combatType)
+        {
+            _combatType = combatType;
+        }
 
         private void Awake()
         {
@@ -74,9 +87,9 @@ namespace JJBG.Combat
             }
         }
 
-        public bool CanAttack()
+        public bool CanAttack(CombatTypes combatType)
         {
-            return _currentState == CombatStates.Idle && _currentStun <= 0;
+            return _currentState == CombatStates.Idle && _combatType == combatType && _currentStun <= 0;
         }
 
         public void SetStun(float stun)

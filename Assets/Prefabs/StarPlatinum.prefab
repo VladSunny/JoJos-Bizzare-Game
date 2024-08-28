@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _knockback: 6
+  _knockback: 5
   _enemyStunDuration: 1.5
   _lunge: 5
-  _makeRagdoll: 1
+  _makeRagdoll: 0
   _punchDelay: 500
+  _delayDuration: 2
   _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &564597311873049467
 GameObject:
@@ -126,10 +127,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8289979947266133843}
-  - {fileID: 6192200378242576420}
-  - {fileID: 2703019418750066029}
   - {fileID: 8171943433620472613}
+  - {fileID: 6192200378242576420}
+  - {fileID: 4549170963499231258}
+  - {fileID: 8289979947266133843}
   m_Father: {fileID: 8382556009730148605}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8817592408953786799
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerObj: {fileID: 8200976189496802867}
   _animator: {fileID: 8558915046547664993}
+  _combatType: 1
   _playerStunDuration: 0.85
   _cooldown: 3
   _timeForContinueCombo: 2
@@ -201,6 +203,7 @@ MonoBehaviour:
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _delayDuration: 2
   _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &2590658406857947643
 GameObject:
@@ -247,11 +250,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _knockback: 5
+  _knockback: 6
   _enemyStunDuration: 1.5
   _lunge: 5
-  _makeRagdoll: 0
+  _makeRagdoll: 1
   _punchDelay: 500
+  _delayDuration: 1
   _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &3171251451661458221
 GameObject:
@@ -299,10 +303,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fa06949011e30d88c65a6ce73172e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _changePositionSpeed: 15
+  _idleMovementSpeed: 10
+  _combatMovementSpeed: 20
   _rotationSpeed: 15
   _eps: 0.01
+  _attackingTimer: 0
   movementState: 0
+--- !u!1 &6702348275460036865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4549170963499231258}
+  - component: {fileID: 4906668419407794748}
+  m_Layer: 0
+  m_Name: MediumPunch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4549170963499231258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702348275460036865}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8039944746506321486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4906668419407794748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702348275460036865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f007976fcf6d0daaa584ecc7ec32bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
+  _knockback: 5
+  _enemyStunDuration: 1.5
+  _lunge: 5
+  _makeRagdoll: 0
+  _punchDelay: 500
+  _delayDuration: 2
+  _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1 &6840319041982072126
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,57 +465,6 @@ MonoBehaviour:
   _hideDuration: 300
   _cooldown: 2
   _cooldownTimer: 0
---- !u!1 &8783468690808412212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2703019418750066029}
-  - component: {fileID: 5041165331772830045}
-  m_Layer: 0
-  m_Name: LightKick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2703019418750066029
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8783468690808412212}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8039944746506321486}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5041165331772830045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8783468690808412212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f007976fcf6d0daaa584ecc7ec32bbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 10
-  _knockback: 5
-  _enemyStunDuration: 1.5
-  _lunge: 5
-  _makeRagdoll: 0
-  _punchDelay: 500
-  _starPlatinumMovement: {fileID: 7156984872670050534}
 --- !u!1001 &268671041101690560
 PrefabInstance:
   m_ObjectHideFlags: 0

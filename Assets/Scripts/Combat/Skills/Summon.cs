@@ -48,14 +48,18 @@ namespace JJBG.Combat.StarPlatinum.Skills
 
             if (_enabled)
             {
-                if (_combatState.CanAttack())
+                if (_combatState.CanAttack(CombatTypes.Standless))
                 {
+                    _combatState.SetCombatType(CombatTypes.Stand);
                     _hideHandler.Show();
                     _SPMovement.movementState = MovementState.Idle;
                 }
             }
             else
             {
+                if (_combatState) _combatState.SetCombatType(CombatTypes.Standless);
+
+                _SPMovement.attackingTimer = 0f;
                 _SPMovement.movementState = MovementState.Hiding;
 
                 await UniTask.Delay(_hideDuration);
