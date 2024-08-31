@@ -273,6 +273,7 @@ MonoBehaviour:
   _summon: {fileID: 1655083626059660638}
   _basePunches: {fileID: 8817592408953786799}
   _finisher: {fileID: 4913688814662756747}
+  _barrage: {fileID: 5231362667335015268}
 --- !u!1 &3547066735676984930
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +327,62 @@ MonoBehaviour:
   _timeForContinueCombo: 0
   _comboTimer: 0
   _cooldownTimer: 0
+--- !u!1 &4603036443943207014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4786181030571084042}
+  - component: {fileID: 5231362667335015268}
+  m_Layer: 0
+  m_Name: Barrage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4786181030571084042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603036443943207014}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8382556009730148605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5231362667335015268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603036443943207014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cb278dd275f56498c5226ef3c9cc93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagePerPunch: 10
+  _punchesCount: 50
+  _barrageDuration: 5
+  _lungePerPunch: 2
+  _knockbackPerPunch: 2
+  _enemyStun: 0.5
+  _delayDuration: 0.8
+  _obj: {fileID: 8200976189496802867}
+  _animator: {fileID: 8558915046547664993}
+  _starPlatinumMovement: {fileID: 7156984872670050534}
+  _barrageTimer: 0
+  _punchTimer: 0
 --- !u!1 &5647015900059041601
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,6 +520,7 @@ Transform:
   - {fileID: 5308065027996456415}
   - {fileID: 8039944746506321486}
   - {fileID: 7871813469040213520}
+  - {fileID: 4786181030571084042}
   m_Father: {fileID: 6704594439795073403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6689491557624044297

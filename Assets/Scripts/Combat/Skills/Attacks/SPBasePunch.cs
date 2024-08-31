@@ -1,6 +1,5 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
-using System.Threading.Tasks;
 
 using JJBG.Combat.Standless.Attacks;
 using JJBG.Movement;

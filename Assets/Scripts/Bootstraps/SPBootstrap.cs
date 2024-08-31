@@ -33,7 +33,6 @@ namespace JJBG.Bootstraps
 
             for (int i = 0; i < skills.Length; i++)
             {
-                Debug.Log(skills[i]);
                 skills[i].Initialize(_combatState);
             }
         }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Threading;
 
 using JJBG.Core;
 using System.Threading.Tasks;

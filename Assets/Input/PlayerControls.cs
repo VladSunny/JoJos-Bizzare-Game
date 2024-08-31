@@ -205,6 +205,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Barrage"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c558282-71dd-48c8-84ba-b966d33507a5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -240,6 +249,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Finisher"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96e3e59e-bb23-4fe0-992f-3c8859306185"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Barrage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -258,6 +278,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_StarPlatinum_Summon = m_StarPlatinum.FindAction("Summon", throwIfNotFound: true);
         m_StarPlatinum_BasePunches = m_StarPlatinum.FindAction("BasePunches", throwIfNotFound: true);
         m_StarPlatinum_Finisher = m_StarPlatinum.FindAction("Finisher", throwIfNotFound: true);
+        m_StarPlatinum_Barrage = m_StarPlatinum.FindAction("Barrage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -400,6 +421,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_StarPlatinum_Summon;
     private readonly InputAction m_StarPlatinum_BasePunches;
     private readonly InputAction m_StarPlatinum_Finisher;
+    private readonly InputAction m_StarPlatinum_Barrage;
     public struct StarPlatinumActions
     {
         private @PlayerControls m_Wrapper;
@@ -407,6 +429,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Summon => m_Wrapper.m_StarPlatinum_Summon;
         public InputAction @BasePunches => m_Wrapper.m_StarPlatinum_BasePunches;
         public InputAction @Finisher => m_Wrapper.m_StarPlatinum_Finisher;
+        public InputAction @Barrage => m_Wrapper.m_StarPlatinum_Barrage;
         public InputActionMap Get() { return m_Wrapper.m_StarPlatinum; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -425,6 +448,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Finisher.started += instance.OnFinisher;
             @Finisher.performed += instance.OnFinisher;
             @Finisher.canceled += instance.OnFinisher;
+            @Barrage.started += instance.OnBarrage;
+            @Barrage.performed += instance.OnBarrage;
+            @Barrage.canceled += instance.OnBarrage;
         }
 
         private void UnregisterCallbacks(IStarPlatinumActions instance)
@@ -438,6 +464,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Finisher.started -= instance.OnFinisher;
             @Finisher.performed -= instance.OnFinisher;
             @Finisher.canceled -= instance.OnFinisher;
+            @Barrage.started -= instance.OnBarrage;
+            @Barrage.performed -= instance.OnBarrage;
+            @Barrage.canceled -= instance.OnBarrage;
         }
 
         public void RemoveCallbacks(IStarPlatinumActions instance)
@@ -468,5 +497,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSummon(InputAction.CallbackContext context);
         void OnBasePunches(InputAction.CallbackContext context);
         void OnFinisher(InputAction.CallbackContext context);
+        void OnBarrage(InputAction.CallbackContext context);
     }
 }

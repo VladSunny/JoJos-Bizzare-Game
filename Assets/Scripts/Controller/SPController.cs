@@ -10,6 +10,7 @@ namespace JJBG.Controller
         [SerializeField] private Summon _summon;
         [SerializeField] private BasePunches _basePunches;
         [SerializeField] private BasePunches _finisher;
+        [SerializeField] private SPBarrage _barrage;
 
         private PlayerControls _playerControls;
         private GameObject _starPlatinum;
@@ -49,6 +50,18 @@ namespace JJBG.Controller
             if (_playerControls.StarPlatinum.Finisher.triggered)
             {
                 _finisher.Activate();
+            }
+
+            if (_playerControls.StarPlatinum.Barrage.WasPressedThisFrame())
+            {
+                Debug.Log("Pressed");
+                _barrage.Activate();
+            }
+
+            if (_playerControls.StarPlatinum.Barrage.WasReleasedThisFrame())
+            {
+                Debug.Log("Released");
+                _barrage.Deactivate();
             }
         }
     }
