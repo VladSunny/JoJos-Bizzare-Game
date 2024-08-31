@@ -24,15 +24,16 @@ namespace JJBG.Bootstraps
             GameObject sp = Instantiate(_SPPrefab);
             sp.GetComponent<StarPlatinumMovement>().Initialize(_idlePosition, _playerObj, _attackPosition);
 
-            if (_controller)
+            if (!_controller)
             {
-                transform.AddComponent<SPController>().Initialize(sp);
+                sp.GetComponent<SPController>().enabled = false;
             }
 
             SkillBase[] skills = sp.GetComponentsInChildren<SkillBase>();
 
             for (int i = 0; i < skills.Length; i++)
             {
+                Debug.Log(skills[i]);
                 skills[i].Initialize(_combatState);
             }
         }

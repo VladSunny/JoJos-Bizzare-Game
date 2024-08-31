@@ -6,8 +6,10 @@ namespace JJBG.Controller
 {
     public class SPController : MonoBehaviour
     {
-        private Summon _summon;
-        private BasePunches _basePunches;
+        [Header("Skills")]
+        [SerializeField] private Summon _summon;
+        [SerializeField] private BasePunches _basePunches;
+        [SerializeField] private BasePunches _finisher;
 
         private PlayerControls _playerControls;
         private GameObject _starPlatinum;
@@ -20,12 +22,6 @@ namespace JJBG.Controller
         public void Initialize(GameObject starPlatinum)
         {
             _starPlatinum = starPlatinum;
-        }
-
-        private void Start()
-        {
-            _summon = _starPlatinum.GetComponentInChildren<Summon>();
-            _basePunches = _starPlatinum.GetComponentInChildren<BasePunches>();
         }
 
         private void OnEnable()
@@ -48,6 +44,11 @@ namespace JJBG.Controller
             if (_playerControls.StarPlatinum.BasePunches.triggered)
             {
                 _basePunches.Activate();
+            }
+
+            if (_playerControls.StarPlatinum.Finisher.triggered)
+            {
+                _finisher.Activate();
             }
         }
     }

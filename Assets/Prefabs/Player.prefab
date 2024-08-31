@@ -863,7 +863,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 9
-  _debug: 1
+  _debug: 0
 --- !u!114 &6418519042935313566
 MonoBehaviour:
   m_ObjectHideFlags: 0
