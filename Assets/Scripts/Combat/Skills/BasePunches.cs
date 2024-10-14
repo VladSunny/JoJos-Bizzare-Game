@@ -1,8 +1,8 @@
-using JJBG.Attributes;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 using JJBG.Combat.Standless.Attacks;
-using Cysharp.Threading.Tasks;
+using JJBG.Attributes;
 
 namespace JJBG.Combat.Skills
 {

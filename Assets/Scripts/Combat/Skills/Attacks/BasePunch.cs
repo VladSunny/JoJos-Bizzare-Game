@@ -38,7 +38,7 @@ namespace JJBG.Combat.Standless.Attacks
 
         public virtual async UniTask Attack()
         {
-            _animator.Play(_basePunchClipName);
+            _animator.CrossFade(_basePunchClipName, 0.5f);
 
             await Task.Delay(_punchDelay);
 
