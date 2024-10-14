@@ -63,13 +63,9 @@ namespace JJBG.Controller
             if (_playerControls.Player.SetRunning.triggered)
             {
                 if (_characterMovement.GetMovementState() == CharacterMovement.MovementStates.Walking)
-                {
                     _characterMovement.ChangeMovementState(CharacterMovement.MovementStates.Running);
-                }
                 else if (_characterMovement.GetMovementState() == CharacterMovement.MovementStates.Running)
-                {
                     _characterMovement.ChangeMovementState(CharacterMovement.MovementStates.Walking);
-                }
             }
         }
     }
