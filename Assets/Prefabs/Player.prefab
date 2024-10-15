@@ -244,8 +244,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 341980223490116229}
-  - component: {fileID: 3418774868480740059}
-  - component: {fileID: 5888373909535514126}
   m_Layer: 0
   m_Name: CombatCore
   m_TagString: Untagged
@@ -268,46 +266,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4446656089722098561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3418774868480740059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673710833396831625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcfebaa52c41e833b8bba15455f38459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 0
-  _maxHealth: 100
-  _timeToStartHealing: 5
-  _healAmount: 10
-  _healRate: 1
-  _debug: 1
-  _damageKey: 49
-  _healKey: 50
---- !u!114 &5888373909535514126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4673710833396831625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 626a7f8bab7292af8b3f495ad750de52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerObj: {fileID: 3200135129794678778}
-  _enemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _drawDebugBoxInEditor: 1
-  _debugPunch: 0
-  _punchKey: 323
-  _debugDraw: 1
 --- !u!1001 &9194229173004888344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,9 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf4a654a8307b7d29e83c6643d7401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _combatState: {fileID: 0}
   _timeToStandUp: 3
-  _standUpDuration: 1.5
 --- !u!4 &1746360380053395173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7468137216822968317, guid: 0354afe37fadb71839dc5d45e96395dd,
