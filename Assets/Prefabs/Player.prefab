@@ -200,7 +200,6 @@ MonoBehaviour:
   _runSpeed: 6
   _groundDrag: 4
   _speedTransitionDuration: 0.2
-  _stunnedSpeed: 0.5
   _jumpForce: 6
   _jumpCooldown: 0.75
   _airMultiplier: 0.25
@@ -245,6 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 341980223490116229}
   - component: {fileID: 1738204775349552578}
+  - component: {fileID: 8767941872206477672}
   m_Layer: 0
   m_Name: CombatCore
   m_TagString: Untagged
@@ -287,6 +287,26 @@ MonoBehaviour:
   _debug: 1
   _damageKey: 49
   _healKey: 50
+--- !u!114 &8767941872206477672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673710833396831625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a0222f88effa5318ca0e17005bea4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 2132055708621672769}
+  _movement: {fileID: 7926356897707628273}
+  _ragdollHandler: {fileID: 3234762858019847726}
+  _stunMultiplier: 0.5
+  _ragdollStun: 6
+  _stun: 0
+  _debug: 1
+  _stunKey: 51
 --- !u!1001 &9194229173004888344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,7 +445,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 9
-  _debug: 0
+  _debug: 1
 --- !u!114 &6418519042935313566
 MonoBehaviour:
   m_ObjectHideFlags: 0

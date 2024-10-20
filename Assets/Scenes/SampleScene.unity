@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11906018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059241112, y: -0.000000003718748, z: 2.2069037e-10, w: 0.9982437}
+  m_LocalRotation: {x: 0.059241112, y: 0.000000003718748, z: -2.2069037e-10, w: 0.9982437}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -417,7 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.06600101, y: 0.092318945, z: 0.0061328793, w: 0.99352074}
+  m_LocalRotation: {x: -0.06600101, y: 0.09231896, z: 0.0061328807, w: 0.99352074}
   m_LocalPosition: {x: 3.1646621, y: 4.6927795, z: -7.7889643}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2194,7 +2194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851625161}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.114129744, y: 0.0000000042734873, z: -4.9093984e-10, w: 0.9934659}
+  m_LocalRotation: {x: 0.114129744, y: -0.0000000042734887, z: 4.9094e-10, w: 0.9934659}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3818,7 +3818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725972480}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.09257211, y: 0.09212169, z: 0.008601894, w: 0.99139804}
+  m_LocalRotation: {x: -0.09257211, y: 0.092121705, z: 0.008601895, w: 0.99139804}
   m_LocalPosition: {x: 0, y: -0.00000047683716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4876,7 +4876,7 @@ Transform:
   m_GameObject: {fileID: 2082902516}
   serializedVersion: 2
   m_LocalRotation: {x: -0.030561596, y: 0.09247882, z: 0.0028398135, w: 0.9952415}
-  m_LocalPosition: {x: 0, y: -0.0000038146973, z: 0}
+  m_LocalPosition: {x: 0, y: -0.000002861023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5490,11 +5490,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3234762858019847726, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
-        type: 3}
-      propertyPath: _debug
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3396603568173407483, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
         type: 3}
       propertyPath: m_Name
@@ -5562,7 +5557,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4673710833396831625, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7208936497877316342}
+      addedObject: {fileID: 7208936497877316345}
   m_SourcePrefab: {fileID: 100100000, guid: f34904d8f745d2d17bc40a1ed0f3ec43, type: 3}
 --- !u!4 &7208936497877316339 stripped
 Transform:
@@ -5582,7 +5577,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfebaa52c41e833b8bba15455f38459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7208936497877316342
+--- !u!54 &7208936497877316343 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2132055708621672769, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
+    type: 3}
+  m_PrefabInstance: {fileID: 7208936497877316338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7208936497877316345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5591,35 +5592,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 685097618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a0222f88effa5318ca0e17005bea4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 288662166fd14cc43a3080ce1aaa1561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 7208936497877316343}
-  _movement: {fileID: 7208936497877316346}
-  _ragdollHandler: {fileID: 1061176677}
-  _stunMultiplier: 0.5
-  _ragdollStun: 6
-  _stun: 0
-  _debug: 1
-  _stunKey: 51
---- !u!54 &7208936497877316343 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2132055708621672769, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
-    type: 3}
-  m_PrefabInstance: {fileID: 7208936497877316338}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7208936497877316346 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7926356897707628273, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
-    type: 3}
-  m_PrefabInstance: {fileID: 7208936497877316338}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e64b09506c607d6dbfee55e4551f418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _playerObj: {fileID: 1103739136}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _drawDebugBoxInEditor: 1
+  _debugPunch: 1
+  _punchKey: 323
+  _debugDraw: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
