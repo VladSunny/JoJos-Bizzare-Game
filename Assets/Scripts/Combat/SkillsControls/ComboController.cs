@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 
 namespace JJBG.Combat
 {
-    public class ComboController : MonoBehaviour
+    public class ComboController : MonoBehaviour, ISkillController
     {
         [Header("Dependencies")]
         [SerializeField] private CombatCore _combatCore;
@@ -74,7 +74,7 @@ namespace JJBG.Combat
             }
         }
 
-        private void Activate()
+        public void Activate()
         {
             if (_cooldownTimer > 0) return;
             if (!_combatCore.CanAttack()) return;

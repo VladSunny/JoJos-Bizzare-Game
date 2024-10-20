@@ -12,4 +12,9 @@ namespace JJBG.Combat
     {
         UniTask Attack();
     }
+
+    interface ISkillController
+    {
+        void Activate();
+    }
 }
