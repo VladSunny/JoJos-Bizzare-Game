@@ -23,6 +23,8 @@ namespace JJBG.Combat
         [SerializeField] private bool _debug = true;
         [SerializeField] private KeyCode _stunKey = KeyCode.Alpha3;
 
+        public float GetStun() { return _stun; }
+
         private void OnEnable() {
             _ragdollHandler.onRagdollChanged += OnRagdollChanged;
         }
@@ -39,11 +41,11 @@ namespace JJBG.Combat
             }
 
             if (_debug && Input.GetKeyDown(_stunKey))
-                AddStun(3f);
+                SetStun(3f);
         }
 
-        public void AddStun(float stun) {
-            _stun += stun;
+        public void SetStun(float stun) {
+            if (stun > _stun) _stun = stun;
         }
 
         private void SpeedControl()
