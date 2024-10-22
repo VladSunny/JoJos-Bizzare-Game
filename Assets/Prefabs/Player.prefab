@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5682554646000553119}
   _playerObj: {fileID: 3200135129794678778}
+  _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _damage: 10
@@ -334,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5682554646000553119}
   _playerObj: {fileID: 3200135129794678778}
+  _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _damage: 10
@@ -450,6 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c352d4b5d6ae24b8352f07ef1afbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _combatType: 0
 --- !u!1 &6019065484492872691
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5682554646000553119}
   _playerObj: {fileID: 3200135129794678778}
+  _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _damage: 10
@@ -550,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 5682554646000553119}
   _playerObj: {fileID: 3200135129794678778}
+  _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _damage: 10
@@ -612,6 +617,7 @@ MonoBehaviour:
   _playerStunDuration: 1.2
   _cooldown: 3
   _timeForContinueCombo: 2.5
+  _combatType: 0
   _comboTimer: 0
   _cooldownTimer: 0
 --- !u!1001 &9194229173004888344

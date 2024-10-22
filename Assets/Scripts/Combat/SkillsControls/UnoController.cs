@@ -17,6 +17,7 @@ namespace JJBG.Combat
         [Header("Settings")]
         [SerializeField] private float _playerStunDuration = 2f;
         [SerializeField] private float _cooldown = 3f;
+        [SerializeField] private CombatType _combatType = CombatType.Standless;
 
         [Header("Timers")]
         [SerializeField, ReadOnly] private float _cooldownTimer = 0f;
@@ -53,7 +54,7 @@ namespace JJBG.Combat
         public void Activate()
         {
             if (_cooldownTimer > 0) return;
-            if (!_combatCore.CanAttack()) return;
+            if (!_combatCore.CanAttack(_combatType)) return;
 
             _stunManager.SetStun(_playerStunDuration);
             skill.Attack().Forget();

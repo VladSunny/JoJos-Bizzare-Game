@@ -18,6 +18,7 @@ namespace JJBG.Combat
         [SerializeField] private float _playerStunDuration = 2f;
         [SerializeField] private float _cooldown = 3f;
         [SerializeField] private float _timeForContinueCombo = 2.5f;
+        [SerializeField] private CombatType _combatType = CombatType.Standless;
 
         [Header("Timers")]
         [SerializeField, ReadOnly] private float _comboTimer = 0f;
@@ -74,7 +75,7 @@ namespace JJBG.Combat
         public void Activate()
         {
             if (_cooldownTimer > 0) return;
-            if (!_combatCore.CanAttack()) return;
+            if (!_combatCore.CanAttack(_combatType)) return;
 
             _comboTimer = _timeForContinueCombo;
 

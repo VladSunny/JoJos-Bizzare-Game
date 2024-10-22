@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11906018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059241112, y: -0.000000003718748, z: 2.2069037e-10, w: 0.9982437}
+  m_LocalRotation: {x: 0.059241112, y: 0.000000003718748, z: -2.2069037e-10, w: 0.9982437}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -393,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1219355962099316027}
   _playerObj: {fileID: 1219355962099316029}
+  _player: {fileID: 901215708}
   _dynamicHitBox: {fileID: 1219355962099316030}
   _rb: {fileID: 7208936497877316343}
   _damage: 10
@@ -431,9 +432,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 251740609}
-  - {fileID: 1087313009}
   - {fileID: 799168198}
+  - {fileID: 251740609}
+  - {fileID: 1666997048}
   - {fileID: 680952226}
   m_Father: {fileID: 1219355962099316026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -452,9 +453,10 @@ MonoBehaviour:
   _combatCore: {fileID: 1571726072}
   _stunManager: {fileID: 1571726071}
   _actionName: BasePunches
-  _playerStunDuration: 2
+  _playerStunDuration: 1
   _cooldown: 3
   _timeForContinueCombo: 2.5
+  _combatType: 1
   _comboTimer: 0
   _cooldownTimer: 0
 --- !u!1 &330585543
@@ -1763,6 +1765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1219355962099316027}
   _playerObj: {fileID: 1219355962099316029}
+  _player: {fileID: 901215708}
   _dynamicHitBox: {fileID: 1219355962099316030}
   _rb: {fileID: 7208936497877316343}
   _damage: 10
@@ -2222,6 +2225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1219355962099316027}
   _playerObj: {fileID: 1219355962099316029}
+  _player: {fileID: 901215708}
   _dynamicHitBox: {fileID: 1219355962099316030}
   _rb: {fileID: 7208936497877316343}
   _damage: 10
@@ -2766,6 +2770,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897513881}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &901215708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3396603568173407483, guid: f34904d8f745d2d17bc40a1ed0f3ec43,
+    type: 3}
+  m_PrefabInstance: {fileID: 7208936497877316338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &915347298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,60 +2967,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1087313008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1087313009}
-  - component: {fileID: 1087313010}
-  m_Layer: 0
-  m_Name: LightKick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1087313009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087313008}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 319181321}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1087313010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087313008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e11839b891b7ce4988a6e145001338f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1219355962099316027}
-  _playerObj: {fileID: 1219355962099316029}
-  _dynamicHitBox: {fileID: 1219355962099316030}
-  _rb: {fileID: 7208936497877316343}
-  _damage: 10
-  _knockback: 5
-  _enemyStunDuration: 2
-  _lunge: 5
-  _makeRagdoll: 0
-  _punchDelay: 500
 --- !u!1 &1093618195
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,7 +3260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195300511}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16018225, y: -0.000000023309845, z: 0.000000003782667, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018224, y: 0.000000004252742, z: -6.9012535e-10, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3984,6 +3940,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854ea7e2960ec31409311d07365bc698, type: 3}
+--- !u!1 &1666997047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666997048}
+  - component: {fileID: 1666997049}
+  m_Layer: 0
+  m_Name: LightPunch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1666997048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666997047}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 319181321}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1666997049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666997047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e11839b891b7ce4988a6e145001338f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1219355962099316027}
+  _playerObj: {fileID: 1219355962099316029}
+  _player: {fileID: 901215708}
+  _dynamicHitBox: {fileID: 1219355962099316030}
+  _rb: {fileID: 7208936497877316343}
+  _damage: 10
+  _knockback: 5
+  _enemyStunDuration: 2
+  _lunge: 5
+  _makeRagdoll: 0
+  _punchDelay: 500
 --- !u!1 &1669247669
 GameObject:
   m_ObjectHideFlags: 3
@@ -5194,7 +5205,7 @@ Transform:
   m_GameObject: {fileID: 2082902516}
   serializedVersion: 2
   m_LocalRotation: {x: -0.030561596, y: 0.09247882, z: 0.0028398135, w: 0.9952415}
-  m_LocalPosition: {x: 0, y: -0.0000019073486, z: 0}
+  m_LocalPosition: {x: 0, y: -0.000005722046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5448,7 +5459,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7156984872670050534, guid: d724cd404e37447a89c0a4d33b598b3b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8382556009730148605, guid: d724cd404e37447a89c0a4d33b598b3b,

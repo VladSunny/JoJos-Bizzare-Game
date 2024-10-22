@@ -14,6 +14,7 @@ namespace JJBG
         [Header("Dependencies")]
         [SerializeField] private Animator _animator;
         [SerializeField] private Transform _playerObj;
+        [SerializeField] private GameObject _player;
         [SerializeField] private DynamicHitBox _dynamicHitBox;
         [SerializeField] private Rigidbody _rb;
 
@@ -43,7 +44,7 @@ namespace JJBG
 
         private void Hit(Collider collider)
         {
-            if (collider.GetComponentInChildren<DynamicHitBox>() == _dynamicHitBox)
+            if (collider.gameObject == _player)
                 return;
 
             Health health = collider.GetComponentInChildren<Health>();
