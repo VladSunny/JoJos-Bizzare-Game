@@ -4,9 +4,9 @@ namespace JJBG.Combat
 {
     public class CombatCore : MonoBehaviour
     {
+        [SerializeField] private CombatType _combatType;
         private Health _health;
         private StunManager _stunManager;
-        [SerializeField] private CombatType _combatType;
 
         private void Awake() {
             _health = GetComponent<Health>();
@@ -19,6 +19,10 @@ namespace JJBG.Combat
             if (_combatType != type) return false;
 
             return _stunManager.GetStun() <= 0 && _health.GetHealth() > 0;
+        }
+
+        public void SetCombatType(CombatType type) {
+            _combatType = type;
         }
     }
 }
