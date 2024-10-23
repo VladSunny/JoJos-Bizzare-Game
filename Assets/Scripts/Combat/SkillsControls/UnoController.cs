@@ -25,6 +25,8 @@ namespace JJBG.Combat
         private ISkill skill;
         private PlayerControls _playerControls;
 
+        public CombatType GetCombatType() => _combatType;
+
         private void Awake() {
             if (_actionName != "")
                 _playerControls = new PlayerControls();

@@ -29,6 +29,8 @@ namespace JJBG.Combat
 
         private int _currentAttack = 0;
 
+        public CombatType GetCombatType() => _combatType;
+
         private void Awake()
         {
             if (_actionName != "")

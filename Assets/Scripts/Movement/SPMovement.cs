@@ -11,7 +11,7 @@ namespace JJBG.Movement
         Attacking
     }
 
-    public class SP : MonoBehaviour
+    public class SPMovement : MonoBehaviour
     {
 
         [Header("Settings")]
@@ -32,7 +32,7 @@ namespace JJBG.Movement
         [SerializeField, ReadOnly] private float _attackTimer = 0f;
 
         [Header("Movement state")]
-        [SerializeField, ReadOnly] MovementState movementState = MovementState.Idle;
+        [SerializeField, ReadOnly] MovementState _movementState = MovementState.Idle;
 
         private Vector3 _targetPosition;
         private float _changePositionSpeed = 0f;
@@ -46,15 +46,22 @@ namespace JJBG.Movement
         }
 
         private void Update()
-        {
-            if (_attackTimer > 0) {
-                _attackTimer -= Time.deltaTime;
-                movementState = MovementState.Attacking;
+        {   
+            if (_movementState != MovementState.Hiding) {
+                if (_attackTimer > 0) {
+                    _attackTimer -= Time.deltaTime;
+                    _movementState = MovementState.Attacking;
+                }
+                else
+                    _movementState = MovementState.Idle;
+            }
+            else {
+                _attackTimer = 0f;
             }
 
             if (_playerObj == null || _idlePosition == null || _attackPosition == null) return;
 
-            switch (movementState)
+            switch (_movementState)
             {
                 case MovementState.Idle:
                     _targetPosition = _idlePosition.localPosition;
@@ -71,10 +78,10 @@ namespace JJBG.Movement
             }
 
             if (_debug && Input.GetKeyDown(KeyCode.Alpha5)) {
-                if (movementState == MovementState.Attacking)
-                    movementState = MovementState.Idle;
+                if (_movementState == MovementState.Attacking)
+                    _movementState = MovementState.Idle;
                 else
-                    movementState++;
+                    _movementState++;
             }
 
             MoveToTraget();
@@ -90,7 +97,7 @@ namespace JJBG.Movement
 
         public void SetMovementState(MovementState state)
         {
-            movementState = state;
+            _movementState = state;
         }
 
         public void SetAttackTimer(float time)

@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 
-using JJBG.Combat;
+using JJBG.Movement;
 
-namespace JJBG
+namespace JJBG.Combat
 {
     public class BasePunchSkill : MonoBehaviour, ISkill
     {
@@ -17,6 +17,7 @@ namespace JJBG
         [SerializeField] private GameObject _player;
         [SerializeField] private DynamicHitBox _dynamicHitBox;
         [SerializeField] private Rigidbody _rb;
+        [SerializeField] private SPMovement _spMovement;
 
         [Header("Settings")]
         [SerializeField] private float _damage = 10f;
@@ -25,6 +26,7 @@ namespace JJBG
         [SerializeField] private float _lunge = 5f;
         [SerializeField] private bool _makeRagdoll = false;
         [Tooltip("In milliseconds"), SerializeField] private int _punchDelay = 500;
+        [SerializeField] private float _attackTime = 1f;
 
         private string _basePunchClipName;
 
@@ -35,6 +37,9 @@ namespace JJBG
 
         public async UniTask Attack()
         {
+            if (_spMovement != null)
+                _spMovement.SetAttackTimer(_attackTime);
+
             _animator.CrossFade(_basePunchClipName, 0.5f);
 
             await Task.Delay(_punchDelay);

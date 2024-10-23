@@ -8,13 +8,15 @@ namespace JJBG.Combat
         Stand
     }
 
-    interface ISkill
+    public interface ISkill
     {
         UniTask Attack();
     }
 
-    interface ISkillController
+    public interface ISkillController
     {
         void Activate();
+
+        CombatType GetCombatType();
     }
 }
