@@ -11,14 +11,16 @@ namespace JJBG.Combat
         private void Awake() {
             _health = GetComponent<Health>();
             _stunManager = GetComponent<StunManager>();
-
-            _combatType = CombatType.Standless;
         }
 
         public bool CanAttack(CombatType type = CombatType.Standless) {
-            if (_combatType != type) return false;
+            if (type != CombatType.Other && _combatType != type) return false;
 
             return _stunManager.GetStun() <= 0 && _health.GetHealth() > 0;
+        }
+
+        public CombatType GetCombatType() {
+            return _combatType;
         }
 
         public void SetCombatType(CombatType type) {

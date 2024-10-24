@@ -5,7 +5,8 @@ namespace JJBG.Combat
     public enum CombatType
     {
         Standless,
-        Stand
+        Stand,
+        Other
     }
 
     public interface ISkill

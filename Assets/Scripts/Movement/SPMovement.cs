@@ -37,6 +37,7 @@ namespace JJBG.Movement
         private Vector3 _targetPosition;
         private float _changePositionSpeed = 0f;
 
+        public MovementState GetMovementState() => _movementState;
 
         public void Initialize(Transform idlePosition, Transform playerObj, Transform attackPosition)
         {
@@ -95,9 +96,13 @@ namespace JJBG.Movement
             transform.forward = Vector3.Slerp(transform.forward, _playerObj.forward, Time.deltaTime * _rotationSpeed);
         }
 
-        public void SetMovementState(MovementState state)
+        public bool SetMovementState(MovementState state)
         {
+            if (_movementState == MovementState.Attacking) return false;
+
             _movementState = state;
+
+            return true;
         }
 
         public void SetAttackTimer(float time)
