@@ -12,6 +12,7 @@ namespace JJBG.Combat
     public interface ISkill
     {
         UniTask Attack();
+        UniTask Stop();
     }
 
     public interface ISkillController

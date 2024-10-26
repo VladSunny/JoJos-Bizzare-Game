@@ -44,8 +44,8 @@ namespace JJBG.Combat
                 SetStun(3f);
         }
 
-        public void SetStun(float stun) {
-            if (stun > _stun) _stun = stun;
+        public void SetStun(float stun, bool hard = false) {
+            if (stun > _stun || hard) _stun = stun;
         }
 
         private void SpeedControl()

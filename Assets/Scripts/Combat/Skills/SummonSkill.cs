@@ -32,5 +32,10 @@ namespace JJBG.Combat
                 _spObj.SetActive(true);
             }
         }
+
+        public UniTask Stop()
+        {
+            return UniTask.CompletedTask;
+        }
     }
 }

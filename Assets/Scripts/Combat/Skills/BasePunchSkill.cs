@@ -77,5 +77,10 @@ namespace JJBG.Combat
             if (_rb)
                 _rb.AddForce(_playerObj.forward * _lunge, ForceMode.Impulse);
         }
+
+        public UniTask Stop()
+        {
+            return UniTask.CompletedTask;
+        }
     }
 }

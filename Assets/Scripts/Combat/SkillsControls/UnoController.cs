@@ -22,7 +22,7 @@ namespace JJBG.Combat
         [Header("Timers")]
         [SerializeField, ReadOnly] private float _cooldownTimer = 0f;
 
-        private ISkill skill;
+        private ISkill _skill;
         private PlayerControls _playerControls;
 
         public CombatType GetCombatType() => _combatType;
@@ -31,26 +31,26 @@ namespace JJBG.Combat
             if (_actionName != "")
                 _playerControls = new PlayerControls();
 
-            skill = GetComponentInChildren<ISkill>();
+            _skill = GetComponentInChildren<ISkill>();
         }
 
         private void OnEnable() {
-            if (_playerControls != null)
+            if (_playerControls != null) {
                 _playerControls.Enable();
+                _playerControls.FindAction(_actionName).performed += ctx => Activate();
+            }
         }
 
         private void OnDisable() {
-            if (_playerControls != null)
+            if (_playerControls != null) {
+                _playerControls.FindAction(_actionName).performed -= ctx => Activate();
                 _playerControls.Disable();
+            }
         }
 
         private void Update() {
             if (_cooldownTimer > 0)
                 _cooldownTimer -= Time.deltaTime;
-            
-            if (_playerControls != null && _playerControls.FindAction(_actionName).triggered) {
-                Activate();
-            }
         }
 
         public void Activate()
@@ -59,7 +59,7 @@ namespace JJBG.Combat
             if (!_combatCore.CanAttack(_combatType)) return;
 
             _stunManager.SetStun(_playerStunDuration);
-            skill.Attack().Forget();
+            _skill.Attack().Forget();
 
             _cooldownTimer = _cooldown;
         }

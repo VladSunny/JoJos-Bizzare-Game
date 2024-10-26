@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &79699687009901837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5666725882389532683}
+  - component: {fileID: 4838983379300298722}
+  m_Layer: 0
+  m_Name: Barrage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5666725882389532683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79699687009901837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7347321014866351978}
+  m_Father: {fileID: 8382556009730148605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4838983379300298722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79699687009901837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0807cc29f9efa22499ec179162f1c7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _combatCore: {fileID: 0}
+  _stunManager: {fileID: 0}
+  _actionName: Barrage
+  _playerStunDuration: 2
+  _cooldown: 3
+  _combatType: 1
+  _cooldownTimer: 0
 --- !u!1 &564597311873049467
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +97,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef1b2ced6fffb006a9d4826ae579b7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &905801487423253753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4960083919412027391}
+  - component: {fileID: 1462971108445648876}
+  m_Layer: 0
+  m_Name: Summon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4960083919412027391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905801487423253753}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4295714128921743669}
+  m_Father: {fileID: 8382556009730148605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1462971108445648876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905801487423253753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eecebd97fd62ebf449b1b75ccea11488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _combatCore: {fileID: 0}
+  _stunManager: {fileID: 0}
+  _actionName: Summon
+  _playerStunDuration: 0
+  _cooldown: 2
+  _combatType: 2
+  _cooldownTimer: 0
 --- !u!1 &1800907735788781755
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,12 +198,14 @@ MonoBehaviour:
   _player: {fileID: 0}
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
+  _spMovement: {fileID: 5119978153596578278}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
-  _lunge: 2
+  _lunge: 0
   _makeRagdoll: 0
   _punchDelay: 500
+  _attackTime: 3
 --- !u!1 &1981812650133802927
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,12 +255,14 @@ MonoBehaviour:
   _player: {fileID: 0}
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
+  _spMovement: {fileID: 5119978153596578278}
   _damage: 10
   _knockback: 7
   _enemyStunDuration: 2
-  _lunge: 2
+  _lunge: 0
   _makeRagdoll: 1
   _punchDelay: 500
+  _attackTime: 2
 --- !u!1 &3171251451661458221
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +318,105 @@ MonoBehaviour:
   _attackPosition: {fileID: 0}
   _debug: 1
   _attackTimer: 0
-  movementState: 0
+  _movementState: 0
+--- !u!1 &4152514624317244256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4295714128921743669}
+  - component: {fileID: 3102172050304034633}
+  m_Layer: 0
+  m_Name: Summon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4295714128921743669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152514624317244256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4960083919412027391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3102172050304034633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152514624317244256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd385f35272a86458fdf3220da7e49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spMovement: {fileID: 5119978153596578278}
+  _spObj: {fileID: 564597311873049467}
+  _combatCore: {fileID: 0}
+  _hideDuration: 500
+--- !u!1 &4176817623058841858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7347321014866351978}
+  - component: {fileID: 315914290134499392}
+  m_Layer: 0
+  m_Name: Barrage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7347321014866351978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176817623058841858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5666725882389532683}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315914290134499392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4176817623058841858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f125cd2b13443b4d94dd8ca6c8bd5d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 8558915046547664993}
+  _playerObj: {fileID: 8200976189496802867}
+  _player: {fileID: 0}
+  _dynamicHitBox: {fileID: 270707920987168211}
+  _rb: {fileID: 0}
+  _spMovement: {fileID: 5119978153596578278}
 --- !u!1 &6196497262743925049
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,12 +466,14 @@ MonoBehaviour:
   _player: {fileID: 0}
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
+  _spMovement: {fileID: 5119978153596578278}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
-  _lunge: 2
+  _lunge: 0
   _makeRagdoll: 0
   _punchDelay: 500
+  _attackTime: 3
 --- !u!1 &6196749165314160776
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,6 +562,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3894331732250479748}
+  - {fileID: 4960083919412027391}
+  - {fileID: 5666725882389532683}
   m_Father: {fileID: 6704594439795073403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &270707920987168211
@@ -425,12 +635,14 @@ MonoBehaviour:
   _player: {fileID: 0}
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
+  _spMovement: {fileID: 5119978153596578278}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
-  _lunge: 2
+  _lunge: 0
   _makeRagdoll: 0
   _punchDelay: 500
+  _attackTime: 3
 --- !u!1001 &268671041101690560
 PrefabInstance:
   m_ObjectHideFlags: 0

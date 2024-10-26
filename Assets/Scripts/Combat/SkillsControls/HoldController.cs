@@ -5,7 +5,7 @@ using JJBG.Attributes;
 
 namespace JJBG.Combat
 {
-    public class ComboController : MonoBehaviour, ISkillController
+    public class HoldController : MonoBehaviour, ISkillController
     {
         [Header("Dependencies")]
         [SerializeField] private CombatCore _combatCore;
@@ -15,63 +15,55 @@ namespace JJBG.Combat
         [SerializeField] private string _actionName = "Punch";
 
         [Header("Settings")]
-        [SerializeField] private float _playerStunDuration = 2f;
+        [SerializeField] private float _playerStunDuration = 0f;
         [SerializeField] private float _cooldown = 3f;
-        [SerializeField] private float _timeForContinueCombo = 2.5f;
         [SerializeField] private CombatType _combatType = CombatType.Standless;
+        [SerializeField] private float _holdDuration = 4f;
 
         [Header("Timers")]
-        [SerializeField, ReadOnly] private float _comboTimer = 0f;
         [SerializeField, ReadOnly] private float _cooldownTimer = 0f;
+        [SerializeField, ReadOnly] private float _holdTimer = 0f;
 
-        private ISkill[] _skills;
+        private ISkill _skill;
         private PlayerControls _playerControls;
 
-        private int _currentAttack = 0;
+        private bool _activated = false;
 
         public CombatType GetCombatType() => _combatType;
 
-        private void Awake()
-        {
+        private void Awake() {
             if (_actionName != "")
                 _playerControls = new PlayerControls();
             
-            _skills = GetComponentsInChildren<ISkill>();
+            _skill = GetComponentInChildren<ISkill>();
         }
 
-        private void OnEnable()
-        {
+        private void OnEnable() {
             if (_playerControls != null) {
                 _playerControls.Enable();
+                
                 _playerControls.FindAction(_actionName).performed += ctx => Activate();
+                _playerControls.FindAction(_actionName).canceled += ctx => Deactivate();
             }
         }
 
-        private void OnDisable()
-        {
+        private void OnDisable() {
             if (_playerControls != null) {
+                _playerControls.FindAction(_actionName).canceled -= ctx => Deactivate();
                 _playerControls.FindAction(_actionName).performed -= ctx => Activate();
+
                 _playerControls.Disable();
             }
         }
-
-        private void Update()
-        {
+        
+        private void Update() {
             if (_cooldownTimer > 0)
-            {
                 _cooldownTimer -= Time.deltaTime;
-            }
 
-            if (_comboTimer > 0)
-            {
-                _comboTimer -= Time.deltaTime;
-            }
-
-            if (_currentAttack > 0 && _comboTimer <= 0)
-            {
-                _cooldownTimer = _cooldown;
-                _currentAttack = 0;
-            }
+            if (_holdTimer > 0)
+                _holdTimer -= Time.deltaTime;
+            else if (_activated)
+                Deactivate();
         }
 
         public void Activate()
@@ -79,18 +71,26 @@ namespace JJBG.Combat
             if (_cooldownTimer > 0) return;
             if (!_combatCore.CanAttack(_combatType)) return;
 
-            _comboTimer = _timeForContinueCombo;
+            _activated = true;
 
-            _stunManager.SetStun(_playerStunDuration);
-            _skills[_currentAttack].Attack().Forget();
+            _holdTimer = _holdDuration;
+
+            _stunManager.SetStun(100f);
+
+            _skill.Attack().Forget();
+        }
+        
+        public void Deactivate()
+        {
+            if (!_activated) return;
+
+            _cooldownTimer = _cooldown;
             
-            _currentAttack++;
+            _activated = false;
 
-            if (_currentAttack >= _skills.Length)
-            {
-                _currentAttack = 0;
-                _cooldownTimer = _cooldown;
-            }
+            _stunManager.SetStun(_playerStunDuration, true);
+
+            _skill.Stop().Forget();
         }
     }
 }
