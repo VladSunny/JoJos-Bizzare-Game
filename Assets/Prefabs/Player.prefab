@@ -81,12 +81,14 @@ MonoBehaviour:
   _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
+  _spMovement: {fileID: 0}
   _damage: 10
   _knockback: 7
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 1
   _punchDelay: 500
+  _attackTime: 1
 --- !u!1 &1816117531838201282
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,12 +340,14 @@ MonoBehaviour:
   _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
+  _spMovement: {fileID: 0}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _attackTime: 1
 --- !u!1 &4673710833396831625
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 0
+  _animator: {fileID: 5682554646000553119}
   _maxHealth: 100
   _timeToStartHealing: 5
   _healAmount: 10
@@ -502,12 +507,14 @@ MonoBehaviour:
   _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
+  _spMovement: {fileID: 0}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _attackTime: 1
 --- !u!1 &6481239047067290958
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,12 +564,14 @@ MonoBehaviour:
   _player: {fileID: 3396603568173407483}
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
+  _spMovement: {fileID: 0}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 0
   _punchDelay: 500
+  _attackTime: 1
 --- !u!1 &8611509383870408106
 GameObject:
   m_ObjectHideFlags: 0

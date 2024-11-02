@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 namespace JJBG
@@ -9,7 +10,7 @@ namespace JJBG
         public delegate void OnRagdollChanged(bool isRagdoll);
         public OnRagdollChanged onRagdollChanged;
 
-        [Header("References")]
+        [Header("Dependencies")]
         [SerializeField] private Transform _parent;
         [SerializeField] private LayerMask _groundLayerMask;
 
@@ -75,6 +76,8 @@ namespace JJBG
             _parent.GetComponent<Collider>().enabled = false;
 
             _enabled = true;
+            
+            _animator.Rebind();
             _animator.enabled = false;
 
             foreach (var col in _colliders)

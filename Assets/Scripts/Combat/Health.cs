@@ -10,6 +10,9 @@ namespace JJBG.Combat
 
         [SerializeField, ReadOnly] private float _health;
 
+        [Header("Dependencies")]
+        [SerializeField] private Animator _animator;
+
         [Header("Health")]
         [SerializeField] private float _maxHealth = 100f;
 
@@ -57,6 +60,11 @@ namespace JJBG.Combat
         public void TakeDamage(float damage) {
             _health = Mathf.Clamp(_health - damage, 0, _maxHealth);
             _healTimer = _timeToStartHealing;
+
+            if (_animator != null) {
+                _animator.SetFloat("HitSeed", Random.Range(0f, 1f));
+                _animator.SetTrigger("Hit");
+            }
 
             onHealthChanged?.Invoke(_health);
         }
