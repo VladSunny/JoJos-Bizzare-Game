@@ -6,7 +6,10 @@ namespace JJBG.Combat
     public class Health : MonoBehaviour
     {
         public delegate void OnHealthChanged(float health);
+        public delegate void OnDamaged(float damage);
+
         public OnHealthChanged onHealthChanged;
+        public OnDamaged onDamaged;
 
         [SerializeField, ReadOnly] private float _health;
 
@@ -67,6 +70,7 @@ namespace JJBG.Combat
             }
 
             onHealthChanged?.Invoke(_health);
+            onDamaged?.Invoke(damage);
         }
 
         public void Heal(float heal) {
