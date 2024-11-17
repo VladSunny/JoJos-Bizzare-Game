@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-using JJBG.Combat;
 using DG.Tweening;
+
+using JJBG.Combat;
 
 namespace JJBG.UI
 {

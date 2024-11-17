@@ -15,8 +15,8 @@ namespace JJBG.Movement
         [SerializeField] private float _groundDrag = 4;
         [SerializeField] private float _speedTransitionDuration = 0.2f;
 
-        [Header("Combat")]
-        [SerializeField] private float _stunnedSpeed = 0.5f;
+        // [Header("Combat")]
+        // [SerializeField] private float _stunnedSpeed = 0.5f;
 
         [Header("Jump")]
         [SerializeField] private float _jumpForce = 12;
@@ -26,7 +26,7 @@ namespace JJBG.Movement
         public enum MovementStates {
             Walking,
             Running,
-            Stunned
+            // Stunned
         }
         private MovementStates _movementState;
 
@@ -38,6 +38,10 @@ namespace JJBG.Movement
         private GroundCheck _groundCheck;
         private Animator _animator;
         private Rigidbody _rb;
+
+        public float GetTargetSpeed() {
+            return _targetSpeed;
+        }
 
         private void Awake()
         {
@@ -115,9 +119,9 @@ namespace JJBG.Movement
                 case MovementStates.Running:
                     _targetSpeed = _runSpeed;
                     break;
-                case MovementStates.Stunned:
-                    _targetSpeed = _stunnedSpeed;
-                    break;
+                // case MovementStates.Stunned:
+                //     _targetSpeed = _stunnedSpeed;
+                //     break;
             }
         }
 

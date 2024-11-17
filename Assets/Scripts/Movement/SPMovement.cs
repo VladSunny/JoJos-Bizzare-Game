@@ -1,5 +1,6 @@
-using JJBG.Attributes;
 using UnityEngine;
+
+using JJBG.Attributes;
 
 namespace JJBG.Movement
 {
@@ -10,7 +11,7 @@ namespace JJBG.Movement
         Attacking
     }
 
-    public class StarPlatinumMovement : MonoBehaviour
+    public class SPMovement : MonoBehaviour
     {
 
         [Header("Settings")]
@@ -18,19 +19,25 @@ namespace JJBG.Movement
         [SerializeField] private float _combatMovementSpeed = 20f;
         [SerializeField] private float _rotationSpeed = 10f;
         [SerializeField] private float _eps = 0.01f;
+        
+        [Header("Points")]
+        [SerializeField] private Transform _idlePosition;
+        [SerializeField] private Transform _playerObj;
+        [SerializeField] private Transform _attackPosition;
+
+        [Header("Debug")]
+        [SerializeField] private bool _debug = false;
 
         [Header("Timers")]
-        [SerializeField, ReadOnly] public float attackingTimer = 0f;
+        [SerializeField, ReadOnly] private float _attackTimer = 0f;
 
-        private float _changePositionSpeed = 0f;
-
-        private Transform _idlePosition;
-        private Transform _playerObj;
-        private Transform _attackPosition;
+        [Header("Movement state")]
+        [SerializeField, ReadOnly] MovementState _movementState = MovementState.Idle;
 
         private Vector3 _targetPosition;
+        private float _changePositionSpeed = 0f;
 
-        public MovementState movementState = MovementState.Idle;
+        public MovementState GetMovementState() => _movementState;
 
         public void Initialize(Transform idlePosition, Transform playerObj, Transform attackPosition)
         {
@@ -40,33 +47,42 @@ namespace JJBG.Movement
         }
 
         private void Update()
-        {
-            if (_playerObj == null || _idlePosition == null) return;
-
-            if (attackingTimer > 0)
-            {
-                movementState = MovementState.Attacking;
-                attackingTimer -= Time.deltaTime;
+        {   
+            if (_movementState != MovementState.Hiding) {
+                if (_attackTimer > 0) {
+                    _attackTimer -= Time.deltaTime;
+                    _movementState = MovementState.Attacking;
+                }
+                else
+                    _movementState = MovementState.Idle;
             }
-            else if (movementState == MovementState.Attacking)
-            {
-                movementState = MovementState.Idle;
+            else {
+                _attackTimer = 0f;
             }
 
-            switch (movementState)
+            if (_playerObj == null || _idlePosition == null || _attackPosition == null) return;
+
+            switch (_movementState)
             {
                 case MovementState.Idle:
-                    _targetPosition = _idlePosition.position;
+                    _targetPosition = _idlePosition.localPosition;
                     _changePositionSpeed = _idleMovementSpeed;
                     break;
                 case MovementState.Hiding:
-                    _targetPosition = _playerObj.position;
+                    _targetPosition = _playerObj.localPosition;
                     _changePositionSpeed = _idleMovementSpeed;
                     break;
                 case MovementState.Attacking:
-                    _targetPosition = _attackPosition.position;
+                    _targetPosition = _attackPosition.localPosition;
                     _changePositionSpeed = _combatMovementSpeed;
                     break;
+            }
+
+            if (_debug && Input.GetKeyDown(KeyCode.Alpha5)) {
+                if (_movementState == MovementState.Attacking)
+                    _movementState = MovementState.Idle;
+                else
+                    _movementState++;
             }
 
             MoveToTraget();
@@ -74,11 +90,24 @@ namespace JJBG.Movement
 
         private void MoveToTraget()
         {
-            if (Vector3.Distance(transform.position, _targetPosition) > _eps)
-                transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _changePositionSpeed);
+            if (Vector3.Distance(transform.localPosition, _targetPosition) > _eps)
+                transform.localPosition = Vector3.Lerp(transform.localPosition, _targetPosition, Time.deltaTime * _changePositionSpeed);
 
             transform.forward = Vector3.Slerp(transform.forward, _playerObj.forward, Time.deltaTime * _rotationSpeed);
         }
 
+        public bool SetMovementState(MovementState state)
+        {
+            if (_movementState == MovementState.Attacking) return false;
+
+            _movementState = state;
+
+            return true;
+        }
+
+        public void SetAttackTimer(float time)
+        {
+            _attackTimer = time;
+        }
     }
 }

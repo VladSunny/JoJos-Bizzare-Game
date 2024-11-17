@@ -83,43 +83,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: AlwaysAttackingEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 28131116537445254, guid: 854ea7e2960ec31409311d07365bc698, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1985825745283255605, guid: 854ea7e2960ec31409311d07365bc698,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 715252679053376418}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854ea7e2960ec31409311d07365bc698, type: 3}
---- !u!114 &7727946491725336917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 162749156374169890, guid: 854ea7e2960ec31409311d07365bc698,
-    type: 3}
-  m_PrefabInstance: {fileID: 7601263756994058359}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a3ec4dad80273aa9d51120a8ed237f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8282696835575944514 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1985825745283255605, guid: 854ea7e2960ec31409311d07365bc698,
-    type: 3}
-  m_PrefabInstance: {fileID: 7601263756994058359}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &715252679053376418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8282696835575944514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1dc87af7b637870a925bceede883254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _skill: {fileID: 7727946491725336917}

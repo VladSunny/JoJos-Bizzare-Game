@@ -1,8 +1,7 @@
 using UnityEngine;
 using System;
-using JJBG.Combat;
 
-namespace JJBG.Core
+namespace JJBG.Combat
 {
     public class DynamicHitBox : MonoBehaviour
     {
