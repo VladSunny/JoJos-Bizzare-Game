@@ -25,7 +25,7 @@ namespace JJBG.UI
         }
 
         private void onDamaged(float damage) {
-            GameObject damagePopup = Instantiate(damagePopupPrefab, transform.position + Vector3.up, Quaternion.identity);
+            GameObject damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
             damagePopup.GetComponent<DamagePopup>().Initilize(damage);
         }
     }
