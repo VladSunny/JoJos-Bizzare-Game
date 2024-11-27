@@ -30,6 +30,9 @@ namespace JJBG.Combat
         [SerializeField] private float _secondsBetweenAttacks = 0.5f;
         [SerializeField] private float _timeForContinueCombo = 0.5f;
 
+        [Header("Effects")]
+        [SerializeField] private ParticleSystem _barrageEffect;
+
         [Header("Timers")]
         [SerializeField, ReadOnly] private float _attackTimer = 0f;
 
@@ -56,6 +59,8 @@ namespace JJBG.Combat
 
             _barraging = true;
 
+            _barrageEffect.Play();
+
             return UniTask.CompletedTask;
         }
 
@@ -66,6 +71,8 @@ namespace JJBG.Combat
             _animator.SetBool(_barrageAnimationClipName, false);
 
             _barraging = false;
+
+            _barrageEffect.Stop();
 
             return UniTask.CompletedTask;
         }
