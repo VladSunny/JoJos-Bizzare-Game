@@ -17,6 +17,7 @@ namespace JJBG.Audio
 
                 s.source.volume = s.volume;
                 s.source.pitch = s.pitch;
+                s.source.spatialBlend = s.spatialBlend;
                 
                 if (s.playOnAwake)
                     s.source.Play();

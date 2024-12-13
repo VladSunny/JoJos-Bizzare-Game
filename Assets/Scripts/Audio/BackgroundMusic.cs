@@ -6,6 +6,8 @@ namespace JJBG.Audio
     {
         [Header("Settings")]
         [SerializeField] private float _pauseTime = 5f;
+        [SerializeField] private bool _globalMusicVolume = true;
+        [SerializeField] private float _musicVolume = 1f;
 
         [Header("Debug")]
         [SerializeField] private KeyCode _nextSoundKey = KeyCode.Alpha4;
@@ -17,6 +19,10 @@ namespace JJBG.Audio
         private void Start() {
             _audioManager = GetComponent<AudioManager>();
             _sounds = _audioManager.sounds;
+
+            for (int i = 0; i < _sounds.Length; i++) {
+                _sounds[i].source.volume = _globalMusicVolume ? _musicVolume : _sounds[i].volume;
+            }
 
             PlayNextSound();
         }
