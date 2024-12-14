@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571328, b: 0.3069218, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -194,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11906018}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059241112, y: 0.000000003718748, z: -2.2069037e-10, w: 0.9982437}
+  m_LocalRotation: {x: 0.05924111, y: 7.799585e-19, z: -1.4472369e-18, w: 0.9982437}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3241,7 +3241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195300511}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16018222, y: 0.000000025470568, z: -0.0000000041333035, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018222, y: -0.000000025470568, z: 0.0000000041333035, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5551,8 +5551,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082902516}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.030561596, y: 0.09247886, z: 0.0028398149, w: 0.9952415}
-  m_LocalPosition: {x: 0, y: -0.000002861023, z: 0}
+  m_LocalRotation: {x: -0.030561596, y: 0.09247882, z: 0.0028398135, w: 0.9952415}
+  m_LocalPosition: {x: 0, y: -0.0000009536743, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6122,6 +6122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StarPlatinum
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171251451661458221, guid: d724cd404e37447a89c0a4d33b598b3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3658376293185059995, guid: d724cd404e37447a89c0a4d33b598b3b,
         type: 3}

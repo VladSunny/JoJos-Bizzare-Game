@@ -109,7 +109,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4960083919412027391}
   - component: {fileID: 1462971108445648876}
-  - component: {fileID: 3710657375474991053}
   m_Layer: 0
   m_Name: Summon
   m_TagString: Untagged
@@ -152,54 +151,6 @@ MonoBehaviour:
   _cooldown: 2
   _combatType: 2
   _cooldownTimer: 0
---- !u!114 &3710657375474991053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905801487423253753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Summon_1
-    clip: {fileID: 8300000, guid: 678136941ee94d04c9885292e2dc5781, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Summon_2
-    clip: {fileID: 8300000, guid: e59294faad1bc7a4a85bc8ff3c049e4b, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Summon_3
-    clip: {fileID: 8300000, guid: 062a375b89dc8bf4283354d383c19df5, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Unsummon_1
-    clip: {fileID: 8300000, guid: 951038454d4bee74a9d3da0f8b003ef2, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Unsummon_2
-    clip: {fileID: 8300000, guid: 5944286ac0692784ab3ecd8061a279c8, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
 --- !u!1 &1800907735788781755
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +351,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6569751883924813080}
   m_Father: {fileID: 4960083919412027391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3102172050304034633
@@ -418,6 +370,7 @@ MonoBehaviour:
   _spMovement: {fileID: 5119978153596578278}
   _spObj: {fileID: 564597311873049467}
   _combatCore: {fileID: 0}
+  _audioManager: {fileID: 2438843102465831096}
   _hideDuration: 500
   _summonSoundCount: 3
   _summonSoundPref: Summon_
@@ -557,6 +510,86 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Finisher_2
     clip: {fileID: 8300000, guid: fd07e9ea72d04bd4f970f372b844f7a5, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+--- !u!1 &5871915376454692092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6569751883924813080}
+  - component: {fileID: 2438843102465831096}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6569751883924813080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871915376454692092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4295714128921743669}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2438843102465831096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871915376454692092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Summon_1
+    clip: {fileID: 8300000, guid: 678136941ee94d04c9885292e2dc5781, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Summon_2
+    clip: {fileID: 8300000, guid: e59294faad1bc7a4a85bc8ff3c049e4b, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Summon_3
+    clip: {fileID: 8300000, guid: 062a375b89dc8bf4283354d383c19df5, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Unsummon_1
+    clip: {fileID: 8300000, guid: 951038454d4bee74a9d3da0f8b003ef2, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Unsummon_2
+    clip: {fileID: 8300000, guid: 5944286ac0692784ab3ecd8061a279c8, type: 3}
     volume: 1
     pitch: 1
     spatialBlend: 1

@@ -14,6 +14,8 @@ namespace JJBG.Combat
         [SerializeField] private SPMovement _spMovement;
         [SerializeField] private GameObject _spObj;
         [SerializeField] private CombatCore _combatCore;
+        [SerializeField] private AudioManager _audioManager;
+        
 
         [Header("Settings")]
         [Tooltip("In milliseconds"), SerializeField] private int _hideDuration;
@@ -23,12 +25,6 @@ namespace JJBG.Combat
         [SerializeField] private string _summonSoundPref = "Summon_";
         [SerializeField] private int _unsummonSoundCount = 0;
         [SerializeField] private string _unsummonSoundPref = "Unsummon_";
-
-        private AudioManager _audioManager;
-
-        private void Start() {
-            _audioManager = GetComponentInParent<AudioManager>();
-        }
 
         public async UniTask Attack()
         {
