@@ -14,6 +14,7 @@ public class BasePunchSkillEditor : Editor
     SerializedProperty _dynamicHitBox;
     SerializedProperty _rb;
     SerializedProperty _spMovement;
+    SerializedProperty _audioManager;
 
     SerializedProperty _damage;
     SerializedProperty _knockback;
@@ -51,6 +52,7 @@ public class BasePunchSkillEditor : Editor
         _dynamicHitBox = serializedObject.FindProperty("_dynamicHitBox");
         _rb = serializedObject.FindProperty("_rb");
         _spMovement = serializedObject.FindProperty("_spMovement");
+        _audioManager = serializedObject.FindProperty("_audioManager");
 
         _damage = serializedObject.FindProperty("_damage");
         _knockback = serializedObject.FindProperty("_knockback");
@@ -72,6 +74,7 @@ public class BasePunchSkillEditor : Editor
         EditorGUILayout.PropertyField(_player);
         EditorGUILayout.PropertyField(_dynamicHitBox);
         EditorGUILayout.PropertyField(_rb);
+        EditorGUILayout.PropertyField(_audioManager);
         if (_combatType == CombatType.Stand)
             EditorGUILayout.PropertyField(_spMovement);
 

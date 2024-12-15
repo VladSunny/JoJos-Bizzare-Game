@@ -15,7 +15,6 @@ namespace JJBG.Combat
         [SerializeField] private GameObject _spObj;
         [SerializeField] private CombatCore _combatCore;
         [SerializeField] private AudioManager _audioManager;
-        
 
         [Header("Settings")]
         [Tooltip("In milliseconds"), SerializeField] private int _hideDuration;

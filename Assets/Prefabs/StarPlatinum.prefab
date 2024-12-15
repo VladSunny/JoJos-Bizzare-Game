@@ -180,7 +180,8 @@ Transform:
   m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5034394980063636360}
   m_Father: {fileID: 3894331732250479748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6331802755609371415
@@ -201,6 +202,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
   _spMovement: {fileID: 5119978153596578278}
+  _audioManager: {fileID: 7805927411315458173}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
@@ -237,7 +239,8 @@ Transform:
   m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4809776829674959652}
   m_Father: {fileID: 3894331732250479748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3658376293185059995
@@ -258,6 +261,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
   _spMovement: {fileID: 5119978153596578278}
+  _audioManager: {fileID: 5432216267370076612}
   _damage: 10
   _knockback: 7
   _enemyStunDuration: 2
@@ -322,6 +326,152 @@ MonoBehaviour:
   _debug: 1
   _attackTimer: 0
   _movementState: 0
+--- !u!1 &3683295516169276716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4809776829674959652}
+  - component: {fileID: 5432216267370076612}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4809776829674959652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683295516169276716}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4738288317086841898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5432216267370076612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683295516169276716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ora1
+    clip: {fileID: 8300000, guid: 4af8cc94555c71640b17543405df72cf, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora2
+    clip: {fileID: 8300000, guid: 08c573cb757d84b4d83c0c2a82696220, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora3
+    clip: {fileID: 8300000, guid: 282a751200c4e5d4a91ee7ff281b0154, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora4
+    clip: {fileID: 8300000, guid: c14c2539a876a214dbeb5a1f189a8944, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+--- !u!1 &4150612124240888940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5505649121740143236}
+  - component: {fileID: 5319251299441284653}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5505649121740143236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150612124240888940}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6463708419527063663}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5319251299441284653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150612124240888940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ora1
+    clip: {fileID: 8300000, guid: 4af8cc94555c71640b17543405df72cf, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora2
+    clip: {fileID: 8300000, guid: 08c573cb757d84b4d83c0c2a82696220, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora3
+    clip: {fileID: 8300000, guid: 282a751200c4e5d4a91ee7ff281b0154, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora4
+    clip: {fileID: 8300000, guid: c14c2539a876a214dbeb5a1f189a8944, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1 &4152514624317244256
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +555,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3754564199902942936}
   m_Father: {fileID: 5666725882389532683}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &315914290134499392
@@ -426,6 +577,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
   _spMovement: {fileID: 5119978153596578278}
+  _audioManager: {fileID: 6153822555933041026}
   _barrageAnimationClipName: Barraging
   _damage: 1
   _knockback: 1
@@ -435,6 +587,79 @@ MonoBehaviour:
   _timeForContinueCombo: 1.5
   _barrageEffect: {fileID: 1377805955684158653}
   _attackTimer: 0
+--- !u!1 &4515395146198913080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5034394980063636360}
+  - component: {fileID: 7805927411315458173}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5034394980063636360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515395146198913080}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 995479025481238693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7805927411315458173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4515395146198913080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ora1
+    clip: {fileID: 8300000, guid: 4af8cc94555c71640b17543405df72cf, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora2
+    clip: {fileID: 8300000, guid: 08c573cb757d84b4d83c0c2a82696220, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora3
+    clip: {fileID: 8300000, guid: 282a751200c4e5d4a91ee7ff281b0154, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora4
+    clip: {fileID: 8300000, guid: c14c2539a876a214dbeb5a1f189a8944, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1 &5819805844744170014
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +670,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1045651251017207274}
   - component: {fileID: 4589869778305258700}
-  - component: {fileID: 3169548578753389611}
   m_Layer: 0
   m_Name: Finisher
   m_TagString: Untagged
@@ -488,33 +712,6 @@ MonoBehaviour:
   _cooldown: 3
   _combatType: 1
   _cooldownTimer: 0
---- !u!114 &3169548578753389611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5819805844744170014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Finisher_1
-    clip: {fileID: 8300000, guid: fd07e9ea72d04bd4f970f372b844f7a5, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Finisher_2
-    clip: {fileID: 8300000, guid: fd07e9ea72d04bd4f970f372b844f7a5, type: 3}
-    volume: 1
-    pitch: 1
-    spatialBlend: 1
-    playOnAwake: 0
-    source: {fileID: 0}
 --- !u!1 &5871915376454692092
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +821,8 @@ Transform:
   m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 263038821480172026}
   m_Father: {fileID: 3894331732250479748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158395663726888066
@@ -645,6 +843,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
   _spMovement: {fileID: 5119978153596578278}
+  _audioManager: {fileID: 9111928981152009909}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
@@ -709,6 +908,65 @@ MonoBehaviour:
   _combatType: 1
   _comboTimer: 0
   _cooldownTimer: 0
+--- !u!1 &6303968441992349949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9070770824349812986}
+  - component: {fileID: 8670008624237085441}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9070770824349812986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6303968441992349949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2958042628131486720}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8670008624237085441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6303968441992349949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Finisher_1
+    clip: {fileID: 8300000, guid: fd07e9ea72d04bd4f970f372b844f7a5, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Finisher_2
+    clip: {fileID: 8300000, guid: 607e14c4cf4bdb649980cc192428fafd, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1 &6667283353082972421
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,7 +996,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9070770824349812986}
   m_Father: {fileID: 1045651251017207274}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8919252649987955099
@@ -759,6 +1018,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
   _spMovement: {fileID: 5119978153596578278}
+  _audioManager: {fileID: 8670008624237085441}
   _damage: 15
   _knockback: 5
   _enemyStunDuration: 2
@@ -851,7 +1111,8 @@ Transform:
   m_LocalPosition: {x: 5.08, y: 0.29000008, z: 9.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5505649121740143236}
   m_Father: {fileID: 3894331732250479748}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2683031608548510941
@@ -872,6 +1133,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 270707920987168211}
   _rb: {fileID: 0}
   _spMovement: {fileID: 5119978153596578278}
+  _audioManager: {fileID: 5319251299441284653}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
@@ -911,6 +1173,138 @@ Transform:
   - {fileID: 5348855075873225264}
   m_Father: {fileID: 6704594439795073403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8381807865436847133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3754564199902942936}
+  - component: {fileID: 6153822555933041026}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3754564199902942936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381807865436847133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7347321014866351978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6153822555933041026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8381807865436847133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Barrage1
+    clip: {fileID: 8300000, guid: bcaac216ee739b2469a9ebc75cda83cb, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Barrage2
+    clip: {fileID: 8300000, guid: 9e4b4720be4815f4490d3b6535f2a636, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+--- !u!1 &8524417738735284365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263038821480172026}
+  - component: {fileID: 9111928981152009909}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263038821480172026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8524417738735284365}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6678068948491128055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9111928981152009909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8524417738735284365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ora1
+    clip: {fileID: 8300000, guid: 4af8cc94555c71640b17543405df72cf, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora2
+    clip: {fileID: 8300000, guid: 08c573cb757d84b4d83c0c2a82696220, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora3
+    clip: {fileID: 8300000, guid: 282a751200c4e5d4a91ee7ff281b0154, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Ora4
+    clip: {fileID: 8300000, guid: c14c2539a876a214dbeb5a1f189a8944, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1001 &4024504225521130
 PrefabInstance:
   m_ObjectHideFlags: 0

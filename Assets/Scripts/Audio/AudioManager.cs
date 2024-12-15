@@ -28,5 +28,16 @@ namespace JJBG.Audio
         {
             Array.Find(sounds, sound => sound.name == name).source.Play();
         }
+
+        public void Stop(string name)
+        {
+            Array.Find(sounds, sound => sound.name == name).source.Stop();
+        }
+
+        public string PlayRandom() {
+            string name = sounds[UnityEngine.Random.Range(0, sounds.Length)].name;
+            Play(name);
+            return name;
+        }
     }
 }

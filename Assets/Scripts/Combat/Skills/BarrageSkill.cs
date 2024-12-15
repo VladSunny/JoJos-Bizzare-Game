@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 
 using JJBG.Movement;
 using JJBG.Attributes;
+using JJBG.Audio;
 
 namespace JJBG.Combat
 {
@@ -18,6 +19,8 @@ namespace JJBG.Combat
         [SerializeField] private DynamicHitBox _dynamicHitBox;
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private SPMovement _spMovement;
+        [SerializeField] private AudioManager _audioManager;
+
 
         [Header("Clip Name")]
         [SerializeField] private string _barrageAnimationClipName = "Barraging";
@@ -37,6 +40,7 @@ namespace JJBG.Combat
         [SerializeField, ReadOnly] private float _attackTimer = 0f;
 
         private bool _barraging = false;
+        private string _currentAudio = "";
 
         private void Update() {
             if (_barraging) {
@@ -61,6 +65,8 @@ namespace JJBG.Combat
 
             _barrageEffect.Play();
 
+            _currentAudio = _audioManager.PlayRandom();
+
             return UniTask.CompletedTask;
         }
 
@@ -73,6 +79,8 @@ namespace JJBG.Combat
             _barraging = false;
 
             _barrageEffect.Stop();
+
+            _audioManager.Stop(_currentAudio);
 
             return UniTask.CompletedTask;
         }

@@ -3,13 +3,14 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 
 using JJBG.Movement;
+using JJBG.Audio;
 
 namespace JJBG.Combat
 {
     public class BasePunchSkill : MonoBehaviour, ISkill
     {
-        [Header("Name of object should be name of clip in animator")]
-        [Space(20)]
+        // [Header("Name of object should be name of clip in animator")]
+        // [Space(20)]
 
         [Header("Dependencies")]
         [SerializeField] private Animator _animator;
@@ -18,6 +19,7 @@ namespace JJBG.Combat
         [SerializeField] private DynamicHitBox _dynamicHitBox;
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private SPMovement _spMovement;
+        [SerializeField] private AudioManager _audioManager;
 
         [Header("Settings")]
         [SerializeField] private float _damage = 10f;
@@ -39,6 +41,9 @@ namespace JJBG.Combat
         {
             if (_spMovement != null)
                 _spMovement.SetAttackTimer(_attackTime);
+
+            if (_audioManager != null)
+                _audioManager.PlayRandom();
 
             _animator.CrossFade(_basePunchClipName, 0.5f);
 
