@@ -175,6 +175,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _spMovement: {fileID: 0}
+  _audioManager: {fileID: 0}
   _damage: 10
   _knockback: 7
   _enemyStunDuration: 2
@@ -436,6 +437,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _spMovement: {fileID: 0}
+  _audioManager: {fileID: 0}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
@@ -457,6 +459,7 @@ GameObject:
   - component: {fileID: 7935567532307681394}
   - component: {fileID: 1675269921529901233}
   - component: {fileID: 2927822799682170274}
+  - component: {fileID: 4108087560989490033}
   m_Layer: 0
   m_Name: CombatCore
   m_TagString: Untagged
@@ -568,6 +571,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePopupPrefab: {fileID: 880825934780578612, guid: 7942e64f07317bf42a63f82db2ac9b62,
     type: 3}
+--- !u!114 &4108087560989490033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673710833396831625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8126ca18d572b4d809c67439463307cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ragdollHandler: {fileID: 3234762858019847726}
+  _rb: {fileID: 2132055708621672769}
+  _animator: {fileID: 5682554646000553119}
 --- !u!1 &6019065484492872691
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +636,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _spMovement: {fileID: 0}
+  _audioManager: {fileID: 0}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2
@@ -675,6 +694,7 @@ MonoBehaviour:
   _dynamicHitBox: {fileID: 7935567532307681394}
   _rb: {fileID: 2132055708621672769}
   _spMovement: {fileID: 0}
+  _audioManager: {fileID: 0}
   _damage: 10
   _knockback: 5
   _enemyStunDuration: 2

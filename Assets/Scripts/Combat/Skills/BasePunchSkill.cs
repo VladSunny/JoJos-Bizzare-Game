@@ -56,28 +56,18 @@ namespace JJBG.Combat
         {
             if (collider.gameObject == _player)
                 return;
+                
+            HitHandler hitHandler = collider.GetComponentInChildren<HitHandler>();
 
-            Health health = collider.GetComponentInChildren<Health>();
-            StunManager stunManager = collider.GetComponentInChildren<StunManager>();
+            HitInfo hitInfo = new HitInfo(
+                _damage,
+                _playerObj.forward * _knockback,
+                _player,
+                _makeRagdoll,
+                _enemyStunDuration
+            );
 
-            if (health) health.TakeDamage(_damage);
-            if (stunManager) stunManager.SetStun(_enemyStunDuration);
-
-            if (_makeRagdoll)
-            {
-                RagdollHandler ragdollHandler = collider.GetComponentInChildren<RagdollHandler>();
-                Animator animator = collider.GetComponentInChildren<Animator>();
-                Rigidbody hipsRigidbody = animator.GetBoneTransform(HumanBodyBones.Hips).GetComponent<Rigidbody>();
-
-                if (ragdollHandler) ragdollHandler.Enable();
-                if (hipsRigidbody) hipsRigidbody.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
-            }
-            else
-            {
-                Rigidbody rb = collider.GetComponentInChildren<Rigidbody>();
-
-                if (rb) rb.AddForce(_playerObj.forward * _knockback, ForceMode.Impulse);
-            }
+            if (hitHandler) hitHandler.GetHit(hitInfo);
 
             if (_rb)
                 _rb.AddForce(_playerObj.forward * _lunge, ForceMode.Impulse);
