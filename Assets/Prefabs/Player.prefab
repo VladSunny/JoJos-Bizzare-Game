@@ -181,6 +181,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 1
+  _soundType: 1
   _punchDelay: 500
   _attackTime: 1
 --- !u!1 &1816117531838201282
@@ -443,6 +444,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 0
+  _soundType: 0
   _punchDelay: 500
   _attackTime: 1
 --- !u!1 &4673710833396831625
@@ -460,6 +462,7 @@ GameObject:
   - component: {fileID: 1675269921529901233}
   - component: {fileID: 2927822799682170274}
   - component: {fileID: 4108087560989490033}
+  - component: {fileID: 5547257928091903825}
   m_Layer: 0
   m_Name: CombatCore
   m_TagString: Untagged
@@ -586,6 +589,72 @@ MonoBehaviour:
   _ragdollHandler: {fileID: 3234762858019847726}
   _rb: {fileID: 2132055708621672769}
   _animator: {fileID: 5682554646000553119}
+  _mediumPunchClipPref: medPunch_
+  _hardPunchClipPref: hardPunch_
+  _mediumPunchSoundsCount: 4
+  _hardPunchSoundsCount: 3
+--- !u!114 &5547257928091903825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673710833396831625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e7b5cc2ef80974582b4b04598c8ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: medPunch_1
+    clip: {fileID: 8300000, guid: 1e3312d22540aa14597a1fb4739f2782, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: medPunch_2
+    clip: {fileID: 8300000, guid: d0f166575306db84091dc03fce0eff69, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: medPunch_3
+    clip: {fileID: 8300000, guid: 1f53a5fc6bd934e46a5d8cfa8fd27b64, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: medPunch_4
+    clip: {fileID: 8300000, guid: e82879725b40ce444bca27d19a75f42c, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: hardPunch_1
+    clip: {fileID: 8300000, guid: 5174415e9879415498f7b0dd794d19c5, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: hardPunch_2
+    clip: {fileID: 8300000, guid: 2a295373a10441545bcaf619b61bea94, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: hardPunch_3
+    clip: {fileID: 8300000, guid: 05d0536a3eefc80438f95f9662331f52, type: 3}
+    volume: 1
+    pitch: 1
+    spatialBlend: 1
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!1 &6019065484492872691
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +711,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 0
+  _soundType: 0
   _punchDelay: 500
   _attackTime: 1
 --- !u!1 &6481239047067290958
@@ -700,6 +770,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 0
+  _soundType: 0
   _punchDelay: 500
   _attackTime: 1
 --- !u!1 &8272026977595013478

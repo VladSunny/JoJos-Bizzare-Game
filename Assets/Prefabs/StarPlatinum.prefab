@@ -208,6 +208,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 0
   _makeRagdoll: 0
+  _soundType: 0
   _punchDelay: 500
   _attackTime: 3
 --- !u!1 &1981812650133802927
@@ -267,6 +268,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 0
   _makeRagdoll: 1
+  _soundType: 1
   _punchDelay: 500
   _attackTime: 2
 --- !u!1 &3171251451661458221
@@ -849,6 +851,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 0
   _makeRagdoll: 0
+  _soundType: 0
   _punchDelay: 500
   _attackTime: 3
 --- !u!1 &6196749165314160776
@@ -1024,6 +1027,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 5
   _makeRagdoll: 1
+  _soundType: 1
   _punchDelay: 500
   _attackTime: 1
 --- !u!1 &6840319041982072126
@@ -1139,6 +1143,7 @@ MonoBehaviour:
   _enemyStunDuration: 2
   _lunge: 0
   _makeRagdoll: 0
+  _soundType: 0
   _punchDelay: 500
   _attackTime: 3
 --- !u!1 &8164921916365925162

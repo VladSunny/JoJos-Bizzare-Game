@@ -23,6 +23,7 @@ public class BasePunchSkillEditor : Editor
     SerializedProperty _makeRagdoll;
     SerializedProperty _punchDelay;
     SerializedProperty _attackTime;
+    SerializedProperty _soundType;
     #endregion
 
     private CombatType _combatType;
@@ -61,6 +62,7 @@ public class BasePunchSkillEditor : Editor
         _makeRagdoll = serializedObject.FindProperty("_makeRagdoll");
         _punchDelay = serializedObject.FindProperty("_punchDelay");
         _attackTime = serializedObject.FindProperty("_attackTime");
+        _soundType = serializedObject.FindProperty("_soundType");
     }
 
     public override void OnInspectorGUI()
@@ -84,6 +86,7 @@ public class BasePunchSkillEditor : Editor
         EditorGUILayout.PropertyField(_lunge);
         EditorGUILayout.PropertyField(_makeRagdoll);
         EditorGUILayout.PropertyField(_punchDelay);
+        EditorGUILayout.PropertyField(_soundType);
         if (_combatType == CombatType.Stand)
             EditorGUILayout.PropertyField(_attackTime);
 

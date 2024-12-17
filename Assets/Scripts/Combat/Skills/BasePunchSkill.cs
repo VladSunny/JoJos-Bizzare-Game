@@ -27,6 +27,7 @@ namespace JJBG.Combat
         [SerializeField] private float _enemyStunDuration = 2f;
         [SerializeField] private float _lunge = 5f;
         [SerializeField] private bool _makeRagdoll = false;
+        [SerializeField] private HitInfo.SoundType _soundType = HitInfo.SoundType.MediumPunch;
         [Tooltip("In milliseconds"), SerializeField] private int _punchDelay = 500;
         [SerializeField] private float _attackTime = 1f;
 
@@ -64,7 +65,8 @@ namespace JJBG.Combat
                 _playerObj.forward * _knockback,
                 _player,
                 _makeRagdoll,
-                _enemyStunDuration
+                _enemyStunDuration,
+                _soundType
             );
 
             if (hitHandler) hitHandler.GetHit(hitInfo);

@@ -10,6 +10,12 @@ namespace JJBG.Combat
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private Animator _animator;
 
+        [Header("AudioSettings")]
+        [SerializeField] private string _mediumPunchClipPref = "medPunch_";
+        [SerializeField] private string _hardPunchClipPref = "hardPunch_";
+        [SerializeField] private int _mediumPunchSoundsCount = 3;
+        [SerializeField] private int _hardPunchSoundsCount = 3;
+
         private Health _health;
         private AudioManager _audioManager;
         private StunManager _stunManager;
@@ -33,6 +39,13 @@ namespace JJBG.Combat
             }
             else {
                 _rb.AddForce(hitInfo.force, ForceMode.Impulse);
+            }
+
+            if (_audioManager != null) {
+                if (hitInfo.soundType == HitInfo.SoundType.MediumPunch)
+                    _audioManager.Play(_mediumPunchClipPref + Random.Range(1, _mediumPunchSoundsCount + 1));
+                else if (hitInfo.soundType == HitInfo.SoundType.HardPunch)
+                    _audioManager.Play(_hardPunchClipPref + Random.Range(1, _hardPunchSoundsCount + 1));
             }
         }
     }
