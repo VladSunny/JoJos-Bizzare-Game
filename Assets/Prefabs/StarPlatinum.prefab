@@ -581,7 +581,7 @@ MonoBehaviour:
   _spMovement: {fileID: 5119978153596578278}
   _audioManager: {fileID: 6153822555933041026}
   _barrageAnimationClipName: Barraging
-  _damage: 1
+  _damage: 1.5
   _knockback: 1
   _enemyStunDuration: 2
   _lunge: 0
