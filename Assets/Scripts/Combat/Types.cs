@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace JJBG.Combat
 {
+    public delegate void OnUsed();
+
     public enum CombatType
     {
         Standless,
@@ -18,6 +20,9 @@ namespace JJBG.Combat
 
     public interface ISkillController
     {
+        public event OnUsed onUsed;
+        public float GetCooldown();
+
         void Activate();
 
         CombatType GetCombatType();

@@ -7,6 +7,9 @@ namespace JJBG.Combat
 {
     public class HoldController : MonoBehaviour, ISkillController
     {
+        
+        public event OnUsed onUsed;
+        
         [Header("Dependencies")]
         [SerializeField] private CombatCore _combatCore;
         [SerializeField] private StunManager _stunManager;
@@ -30,6 +33,7 @@ namespace JJBG.Combat
         private bool _activated = false;
 
         public CombatType GetCombatType() => _combatType;
+        public float GetCooldown() => _cooldown;
 
         private void Awake() {
             if (_actionName != "")
@@ -87,6 +91,8 @@ namespace JJBG.Combat
             _cooldownTimer = _cooldown;
             
             _activated = false;
+
+            onUsed?.Invoke();
 
             _stunManager.SetStun(_playerStunDuration, true);
 

@@ -7,6 +7,8 @@ namespace JJBG.Combat
 {
     public class ComboController : MonoBehaviour, ISkillController
     {
+        public event OnUsed onUsed;
+        
         [Header("Dependencies")]
         [SerializeField] private CombatCore _combatCore;
         [SerializeField] private StunManager _stunManager;
@@ -30,6 +32,7 @@ namespace JJBG.Combat
         private int _currentAttack = 0;
 
         public CombatType GetCombatType() => _combatType;
+        public float GetCooldown() => _cooldown;
 
         private void Awake()
         {
@@ -69,6 +72,7 @@ namespace JJBG.Combat
 
             if (_currentAttack > 0 && _comboTimer <= 0)
             {
+                onUsed?.Invoke();
                 _cooldownTimer = _cooldown;
                 _currentAttack = 0;
             }
@@ -88,6 +92,7 @@ namespace JJBG.Combat
 
             if (_currentAttack >= _skills.Length)
             {
+                onUsed?.Invoke();
                 _currentAttack = 0;
                 _cooldownTimer = _cooldown;
             }

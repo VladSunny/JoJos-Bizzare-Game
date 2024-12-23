@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5666725882389532683}
   - component: {fileID: 4838983379300298722}
+  - component: {fileID: 7672738953075456652}
   m_Layer: 0
   m_Name: Barrage
   m_TagString: Untagged
@@ -54,6 +55,22 @@ MonoBehaviour:
   _holdDuration: 5
   _cooldownTimer: 0
   _holdTimer: 0
+--- !u!114 &7672738953075456652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79699687009901837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460095eb407ddc46a93a704ced36166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldownUIPrefab: {fileID: 8695698992993319487, guid: 7dd405091aa34e53ea1d7f9cc3f59f97,
+    type: 3}
+  _parentObject: {fileID: 0}
+  _actionName: Barrage
 --- !u!1 &564597311873049467
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4960083919412027391}
   - component: {fileID: 1462971108445648876}
+  - component: {fileID: 7760128325541195016}
   m_Layer: 0
   m_Name: Summon
   m_TagString: Untagged
@@ -151,6 +169,22 @@ MonoBehaviour:
   _cooldown: 2
   _combatType: 2
   _cooldownTimer: 0
+--- !u!114 &7760128325541195016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905801487423253753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460095eb407ddc46a93a704ced36166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldownUIPrefab: {fileID: 8695698992993319487, guid: 7dd405091aa34e53ea1d7f9cc3f59f97,
+    type: 3}
+  _parentObject: {fileID: 0}
+  _actionName: Summon
 --- !u!1 &1800907735788781755
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,6 +706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1045651251017207274}
   - component: {fileID: 4589869778305258700}
+  - component: {fileID: 6915537856178129423}
   m_Layer: 0
   m_Name: Finisher
   m_TagString: Untagged
@@ -714,6 +749,22 @@ MonoBehaviour:
   _cooldown: 3
   _combatType: 1
   _cooldownTimer: 0
+--- !u!114 &6915537856178129423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819805844744170014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460095eb407ddc46a93a704ced36166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldownUIPrefab: {fileID: 8695698992993319487, guid: 7dd405091aa34e53ea1d7f9cc3f59f97,
+    type: 3}
+  _parentObject: {fileID: 0}
+  _actionName: Finisher
 --- !u!1 &5871915376454692092
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3894331732250479748}
   - component: {fileID: 9022569603603634070}
+  - component: {fileID: 8968244579446460750}
   m_Layer: 0
   m_Name: BasePunches
   m_TagString: Untagged
@@ -911,6 +963,22 @@ MonoBehaviour:
   _combatType: 1
   _comboTimer: 0
   _cooldownTimer: 0
+--- !u!114 &8968244579446460750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196749165314160776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8460095eb407ddc46a93a704ced36166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldownUIPrefab: {fileID: 8695698992993319487, guid: 7dd405091aa34e53ea1d7f9cc3f59f97,
+    type: 3}
+  _parentObject: {fileID: 0}
+  _actionName: Base Ora
 --- !u!1 &6303968441992349949
 GameObject:
   m_ObjectHideFlags: 0

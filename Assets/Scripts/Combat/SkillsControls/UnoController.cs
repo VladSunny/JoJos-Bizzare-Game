@@ -7,6 +7,8 @@ namespace JJBG.Combat
 {
     public class UnoController : MonoBehaviour, ISkillController
     {
+        public event OnUsed onUsed;
+
         [Header("Dependencies")]
         [SerializeField] private CombatCore _combatCore;
         [SerializeField] private StunManager _stunManager;
@@ -26,6 +28,7 @@ namespace JJBG.Combat
         private PlayerControls _playerControls;
 
         public CombatType GetCombatType() => _combatType;
+        public float GetCooldown() => _cooldown;
 
         private void Awake() {
             if (_actionName != "")
@@ -60,6 +63,8 @@ namespace JJBG.Combat
 
             _stunManager.SetStun(_playerStunDuration);
             _skill.Attack().Forget();
+
+            onUsed?.Invoke();
 
             _cooldownTimer = _cooldown;
         }
